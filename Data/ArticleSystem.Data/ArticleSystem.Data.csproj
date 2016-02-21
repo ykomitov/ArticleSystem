@@ -73,6 +73,10 @@
       <Project>{701F322F-AA01-4DDC-90B6-6935981C1E73}</Project>
       <Name>ArticleSystem.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ArticleSystem.Tools.ImageConverter\ArticleSystem.Tools.ImageConverter.csproj">
+      <Project>{1e5a04f4-4b9b-4bb2-99a2-ddbd25ccf929}</Project>
+      <Name>ArticleSystem.Tools.ImageConverter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ArticleSystem.Data.Common\ArticleSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>ArticleSystem.Data.Common</Name>

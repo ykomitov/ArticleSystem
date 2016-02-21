@@ -16,7 +16,7 @@
         public string Title { get; set; }
 
         [Required]
-        public string Text { get; set; }
+        public string TextHtml { get; set; }
 
         public byte[] HeaderImage { get; set; }
 
@@ -25,6 +25,11 @@
         public byte[] SliderImage { get; set; }
 
         public string SliderImageFileName { get; set; }
+
+        public string AuthorId { get; set; }
+
+        [Required]
+        public virtual ApplicationUser Author { get; set; }
 
         public virtual int CategoryId { get; set; }
 
