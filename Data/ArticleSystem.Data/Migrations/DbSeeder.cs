@@ -62,7 +62,7 @@
                     "Tech",
                     "Devices",
                     "Soft",
-                    "VLog",
+                    "Science",
                     "About"
             };
 
@@ -202,6 +202,81 @@
                 };
 
                 context.Articles.Add(sampleArticle7);
+                context.SaveChanges();
+
+                var sampleArticle8 = new Article()
+                {
+                    Title = "John McAfee offers to decrypt San Bernardino iPhone for the FBI and save America",
+                    TextHtml = "<p>Wondering what John McAfee is up to these days? It's not sniffing bath salts nor is he fleeing foreign countries as a person of interest in a murder investigation and faking heart attacks (been there, done all that) ; instead, he's on a mission to save America. How so? By cracking the code on the San Bernardino iPhone that's causing such a ruckus. McAfee didn't just criticize the FBI; instead he offered a potential solution. Let him and his team of hackers break into the iPhone without any help from Apple. \"With all due respect to Tim Cook and Apple, I work with a team of the best hackers on the planet.These hackers attend Defcon in Las Vegas, and they are legends in their local hacking groups, such as HackMiami.They are all prodigies, with talents that defy normal human comprehension,\" McAfee said. Eccentric rant aside, McAfee's offer is simple - give him three weeks and he will, \"free of charge, decrypt the information on the San Bernardino phone\" with his team of hackers. He'll do it using mostly social engineering.</p>",
+                    SliderImage = imageConverter.ConvertImageToByteArray(pathBase + sliderImageArticle4),
+                    SliderImageFileName = sliderImageArticle4,
+                    HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + headerImageArticle1),
+                    HeaderImageFileName = headerImageArticle1,
+                    Category = context.ArticleCategories.Where(c => c.Id == 3).FirstOrDefault(),
+                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                };
+
+                context.Articles.Add(sampleArticle8);
+                context.SaveChanges();
+
+                var sampleArticle9 = new Article()
+                {
+                    Title = "LinkedIn is open sourcing their testing frameworks ",
+                    TextHtml = "<p>LinkedIn is open sourcing their testing frameworks, and sharing details of their revamped development process after their latest app required a year and over 250 engineers. Their new paradigm? \"Release three times per day, with no more than three hours between when code is committed and when that code is available to members,\" according to a senior engineer on LinkedIn's blog. This requires a three-hour pipeline where everything is automated, from committing code to releasing it into production, along with automated analyses and testing. \"Holding ourselves to this constraint ensures we won't revert to using manual validation to certify our releases.\"</p>",
+                    SliderImage = imageConverter.ConvertImageToByteArray(pathBase + sliderImageArticle1),
+                    SliderImageFileName = sliderImageArticle1,
+                    HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + headerImageArticle2),
+                    HeaderImageFileName = headerImageArticle2,
+                    Category = context.ArticleCategories.Where(c => c.Id == 4).FirstOrDefault(),
+                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                };
+
+                context.Articles.Add(sampleArticle9);
+                context.SaveChanges();
+
+                var sampleArticle10 = new Article()
+                {
+                    Title = "GitHub is undergoing a full-blown overhaul as execs and employees depart",
+                    TextHtml = "<p>We've been hearing about a lot of drama going on at $2 billion startup GitHub, the hugely important and popular site used by millions of computer programmers where 10 or more executives have departed in recent months.</p><p>Underlying the drama is the fact that GitHub is trying to grow the company's revenues by landing more big enterprise contracts. And it's doing a good job of that, several sources — even the disgruntled ones — told us.</p><p>That means there's an effort to hire more enterprise salespeople, with all the suit-and-tie salesforce culture that typically includes. (GitHub employs over 80 sales folks according to LinkedIn.) And these sales people want the company to create more products for them to sell.</p><p>Meanwhile, the company's millions of developer users, many of whom use the site for free or for a small monthly fee, also want GitHub to pay more attention to them. A bunch of active and influential users sent a letter in January called \"Dear GitHub\" in which they asked for a bunch of product features, too. At least one person told us that this letter alarmed some of the leadership team.</p><p>Given the growing pains, we've been hearing that the unhappy engineers would like to bail from the company.</p><p>\"Employees live in a culture of fear but the pay is at the 95th percentile and folks just accept the sadly deteriorating culture,\" complained one GitHub employee in a recent review on Glassdoor.</p><p>Some of these folks may be hanging out until GitHub offers some kind of \"liquidity event\" — a way for longtime employees or investors to sell some of their shares — which one person believes could take place soon.</p><p>With plenty of competitors, including Atlassian, GitLab, and even Google, one thing is certain: If GitHub does stumble, there are plenty of companies that want to pick up its slack.</p>",
+                    SliderImage = imageConverter.ConvertImageToByteArray(pathBase + sliderImageArticle2),
+                    SliderImageFileName = sliderImageArticle2,
+                    HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + headerImageArticle1),
+                    HeaderImageFileName = headerImageArticle1,
+                    Category = context.ArticleCategories.Where(c => c.Id == 4).FirstOrDefault(),
+                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                };
+
+                context.Articles.Add(sampleArticle10);
+                context.SaveChanges();
+
+                var sampleArticle11 = new Article()
+                {
+                    Title = "NASA aeronautics budget proposes return of X-planes",
+                    TextHtml = "<p>If President Obama's recently released federal budget request is approved for the fiscal year beginning Oct. 1, 2016, next year will be the first in a bold 10-year plan by NASA Aeronautics to achieve huge goals in reducing fuel use, emissions, and noise by the way aircraft are designed, and the way they operate in the air and on the ground.</p><p>One exciting piece of this 10-year plan is New Aviation Horizons -- an ambitious undertaking by NASA to design, build and fly a variety of flight demonstration vehicles, or \"X - planes.\" The demos included advancements in lightweight composite materials that are needed to create revolutionary aircraft structures, an advanced fan design to improve propulsion and reduce noise in jet engines, designs to reduce noise from wing flaps and landing gear, and shape-changing wing flaps, and even coating to prevent bug residue buildup on wings.</p>",
+                    SliderImage = imageConverter.ConvertImageToByteArray(pathBase + sliderImageArticle3),
+                    SliderImageFileName = sliderImageArticle3,
+                    HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + headerImageArticle2),
+                    HeaderImageFileName = headerImageArticle2,
+                    Category = context.ArticleCategories.Where(c => c.Id == 5).FirstOrDefault(),
+                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                };
+
+                context.Articles.Add(sampleArticle11);
+                context.SaveChanges();
+
+                var sampleArticle12 = new Article()
+                {
+                    Title = "Mice gain weight in cold temperatures due to gut changes ",
+                    TextHtml = "<p>Winter is coming, in the northern hemisphere at least. Time, then, to break out the heavy coats, thick gloves and galoshes—but also time, if a study by Mirko Trajkovski of the University of Geneva is correct, for your gut bacteria to remodel your intestines and make them better at absorbing nutrients before the blizzards arrive. Dr Trajkovski’s work, just published in Cell, was on mice. But previous experience suggests that in this area of biology what applies to mice applies to men as well. If that is true in this case too, it will mean an important part of the human body’s thermoregulation is actually controlled by its companion microbes.</p><p>Dr Trajkovski’s research group studies obesity and insulin resistance—the latter being the cause of the form of diabetes many people suffer from in later life. Past studies have shown that obese animals (people included) have different microbial mixtures, known as microbiomes, in their guts from those found in animals of normal weight. Moreover, in mice at least, modifying the mix can induce obesity without a change of diet. One line of inquiry the group is pursuing therefore involves studying murine microbiomes. And one question they asked themselves is what effect ambient temperature might have.</p><p>To find out, they put some mice into one or other of two sets of enclosures for a month. The first set were maintained at 6°C. The second were kept at 22°C (ie, room temperature). The team weighed the animals at regular intervals. They also saved the creatures’ faeces and collected blood samples from which they could determine their subjects’ sensitivity to insulin. Since insulin stimulates the burning by cells of glucose, the more sensitive an animal is to it, the more glucose it will burn, and the more heat it will generate.</p><p>Based on previous findings, Dr Trajkovski expected the mice in the cold enclosures to lose weight as they burned stored reserves to stay warm—and, for the first few days they did. After five to ten days, though, they did something unexpected. In spite of the fact that their rations had not increased, they began to put on weight.</p><p>To try to find out why, the team measured the calorific value left in the faeces, to assess how much nutrition the animals had extracted from their food. They also looked at the insulin-sensitivity data.</p><p>Mice exposed to the cold, they discovered, became 50% more efficient over the course of the study at absorbing nutrients from their food. Those held at room temperature, by contrast, showed no change in their digestive efficiency. The cold-dwelling mice also became 40% more sensitive to insulin, while those in the room-temperature enclosures did not. That suggested the mice in the chiller cabinets were not only extracting more value from their food, they were also becoming better at burning it, and thus generating heat.</p><p>Given its role in obesity, Dr Trajkovski suspected the gut microbiome might be playing a part is these unpredicted results. The team thus reran the experiments and sampled the animals’ gut floras. They also looked at the rodents’ intestinal walls, to see if the anatomy of these had changed in ways that would make it easier for them to absorb food.</p><p>The gut floras of the two groups were radically different. In particular, and intriguingly, the chilled mice lacked a species called Akkermansia muciniphila that is often absent from the guts of obese people—an absence that may be involved in their putting on extra weight.</p><p>The cold-dwelling mice also had different intestinal anatomy. Their villi, the tiny projections from the intestinal wall that absorb food into the body, were more than 50% longer than those of mice living at room temperature.</p><p>Dr Trajkovski and his colleagues then arranged for mice that had been born and raised at room temperature, and in aseptic conditions (and which were thus germ-free), to have bacteria, collected either from cold-dwelling mice or from mice that came from room-temperature enclosures, transplanted into their guts.</p><p>After two weeks, those with transplants from cold-dwelling mice resembled the mice the transplants had come from in insulin sensitivity, cold tolerance and the lengths of their villi. The mice with transplants from “room-temperature” mice, by contrast, resembled those.</p><p>As a final experiment the team added some A. muciniphila to the guts of the mice that had received transplants from cold-dwellers, to see how the bug’s reintroduction would shape them. Remarkably, these mice started losing weight and, when the researchers examined their intestines two weeks later, they found that the villi had shrunk back to the size of those found in room-temperature mice.</p><p>How the bacteria cause all these changes Dr Trajkovski has yet to work out. But the bottom line is clear: in mice—and probably in human beings as well—partial control of the body’s thermostat is in the hands of subcontractors.</p>",
+                    SliderImage = imageConverter.ConvertImageToByteArray(pathBase + sliderImageArticle4),
+                    SliderImageFileName = sliderImageArticle4,
+                    HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + headerImageArticle1),
+                    HeaderImageFileName = headerImageArticle1,
+                    Category = context.ArticleCategories.Where(c => c.Id == 5).FirstOrDefault(),
+                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                };
+
+                context.Articles.Add(sampleArticle12);
                 context.SaveChanges();
             }
         }
