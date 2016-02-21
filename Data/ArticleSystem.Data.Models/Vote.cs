@@ -10,8 +10,8 @@
 
         public virtual Article Article { get; set; }
 
-        public string UserId { get; set; }
+        public string VoterId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser Voter { get; set; }
     }
 }

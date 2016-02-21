@@ -6,21 +6,22 @@
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = true;
+            this.AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(ApplicationDbContext context)
         {
-            if (System.Diagnostics.Debugger.IsAttached == false)
+            /*if (System.Diagnostics.Debugger.IsAttached == false)
             {
                 System.Diagnostics.Debugger.Launch();
-            }
+            }*/
 
             DbSeeder.SeedUsers(context);
             DbSeeder.SeedCategories(context);
             DbSeeder.SeedArticles(context);
             DbSeeder.SeedVotes(context);
+            DbSeeder.SeedComments(context);
         }
     }
 }

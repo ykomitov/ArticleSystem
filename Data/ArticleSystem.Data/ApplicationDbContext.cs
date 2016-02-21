@@ -31,12 +31,12 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
+
+            // TODO: Remove
             try
             {
                 return base.SaveChanges();
             }
-
-            // TODO: Remove
             catch (Exception ex)
             {
                 throw new Exception();
