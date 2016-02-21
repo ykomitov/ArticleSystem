@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleSystem.Services.Web"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleSystem.Common", "ArticleSystem.Common\ArticleSystem.Common.csproj", "{701F322F-AA01-4DDC-90B6-6935981C1E73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleSystem.Tools.ImageConverter", "ArticleSystem.Tools.ImageConverter\ArticleSystem.Tools.ImageConverter.csproj", "{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{701F322F-AA01-4DDC-90B6-6935981C1E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{701F322F-AA01-4DDC-90B6-6935981C1E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{701F322F-AA01-4DDC-90B6-6935981C1E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,5 +85,6 @@ Global
 		{6813DC53-5EEE-4507-8604-5301EE51A0D3} = {99FC36D3-D963-4263-BF69-8BD11F801E2B}
 		{90FE4C4D-122A-406D-8A40-79C561FB8184} = {A5398FDD-2BE7-452F-9808-E5D3C5B58CC3}
 		{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C} = {A5398FDD-2BE7-452F-9808-E5D3C5B58CC3}
+		{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929} = {33E0499A-81F4-4CE7-A1BF-6E7103399834}
 	EndGlobalSection
 EndGlobal
