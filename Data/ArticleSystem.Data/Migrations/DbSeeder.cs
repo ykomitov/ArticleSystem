@@ -280,5 +280,32 @@
                 context.SaveChanges();
             }
         }
+
+        public static void SeedVotes(ApplicationDbContext context)
+        {
+            var random = new Random();
+
+            if (!context.Votes.Any())
+            {
+                var articles = context.Articles.ToList();
+
+                foreach (var article in articles)
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        var newVote = new Vote()
+                        {
+                            Article = article,
+                            User = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault(),
+                            VoteType = (VoteType)random.Next(-1, 2)
+                        };
+
+                        context.Votes.Add(newVote);
+                    }
+
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

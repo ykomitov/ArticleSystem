@@ -6,8 +6,8 @@
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
-            this.AutomaticMigrationDataLossAllowed = false;
+            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ApplicationDbContext context)
@@ -20,6 +20,7 @@
             DbSeeder.SeedUsers(context);
             DbSeeder.SeedCategories(context);
             DbSeeder.SeedArticles(context);
+            DbSeeder.SeedVotes(context);
         }
     }
 }
