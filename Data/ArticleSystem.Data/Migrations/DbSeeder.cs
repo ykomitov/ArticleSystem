@@ -310,6 +310,8 @@
 
         public static void SeedComments(ApplicationDbContext context)
         {
+            string commentText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+
             if (!context.Comments.Any())
             {
                 var articles = context.Articles.ToList();
@@ -323,21 +325,23 @@
                         {
                             Article = article,
                             Author = author,
-                            CommentText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+                            CommentText = commentText
                         };
 
                         context.Comments.Add(newComment);
                         context.SaveChanges();
 
-                        if (i % 2 == 0)
+                        if (i % 3 == 0)
                         {
-                            var parentComment = context.Comments.OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+                            var parentComment = context.Comments
+                                .OrderBy(c => Guid.NewGuid())
+                                .FirstOrDefault();
 
                             var commentReply = new Comment()
                             {
                                 Article = parentComment.Article,
                                 Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault(),
-                                CommentText = "It is always good to reply to a dummy text comment!"
+                                CommentText = commentText
                             };
 
                             parentComment.Comments.Add(commentReply);
