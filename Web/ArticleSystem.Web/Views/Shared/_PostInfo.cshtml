@@ -1,0 +1,6 @@
+﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleViewModel
+
+<p class="post-info">
+    Posted by <span class="post-user">@Model.Author</span> on <span class="post-date">@Html.DisplayFor(d => Model.CreatedOn)</span> in <span class="post-category">@Model.Category</span> |
+    <span class="post-comments">@Model.Comments comments</span>
+</p>

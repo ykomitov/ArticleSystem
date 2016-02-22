@@ -1,0 +1,94 @@
+﻿@using ArticleSystem.Web.Helpers
+
+@model ArticleSystem.Web.ViewModels.Articles.ArticleViewModel
+
+<div id="main-content" class="inner-page self-clear">
+    <aside class="inner-page">
+        <div id="aside-blog" class="aside-element">
+            <h3>From the blog</h3>
+            <ul>
+                <li><a href="#">Curabitur blandit rutrum felis pretium</a></li>
+                <li><a href="#">Pharetra donec dictum felis eu quis</a></li>
+                <li><a href="#">Eros pretium vulputate dictum donec</a></li>
+                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
+                <li><a href="#">Suspendisse potenti integer donec</a></li>
+                <li><a href="#">Accumsan nunc sollicitudin id pelle</a></li>
+            </ul>
+        </div>
+        <div id="aside-archives" class="aside-element">
+            <h3>Archives</h3>
+            <ul>
+                <li><a href="#">Curabitur blandit rutrum</a></li>
+                <li><a href="#">Pharetra donec dictum felis eu</a></li>
+                <li><a href="#">Eros pretium vulputate</a></li>
+                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
+                <li><a href="#">Suspendisse potenti integer</a></li>
+                <li><a href="#">Accumsan nunc sollicitudin id</a></li>
+            </ul>
+        </div>
+        <div id="aside-posts" class="aside-element">
+            <h3>Recent posts</h3>
+            <ul>
+                <li><a href="#">Curabitur blandit rutrum</a></li>
+                <li><a href="#">Pharetra donec dictum felis eu</a></li>
+                <li><a href="#">Eros pretium vulputate</a></li>
+                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
+                <li><a href="#">Suspendisse potenti integer</a></li>
+                <li><a href="#">Accumsan nunc sollicitudin id</a></li>
+            </ul>
+        </div>
+    </aside>
+    <div id="main" class="inner-page post">
+        <div class="post-preview post-full">
+            @Html.Partial("_PostInfo")
+            <div class="post-text">
+                <div class="post-img-container">
+                    <img src="@ImageFromDb.Image(Model.HeaderImage)" />
+                </div>
+                @Html.Raw(Model.TextHtml)
+            </div>
+            <div id="comments-container">
+                <h1><span id="number-of-comments">30</span> Comments</h1>
+                <div class="comment">
+                    <div class="comment-avatar">
+                        <img src="images/avatar.jpg">
+                    </div>
+                    <div class="comment-body">
+                        <span class="user-name">Nick Roack</span>
+                        <span class="comment-date">March 13, 2010</span>
+                        <p class="comment-text">
+                            Curabitur blandit rutrum pharetra. Donec dictum felis eu eros pretium vulputate.
+                            Etiam quis nulla ac turpis molestie tempus et in purus. Suspendisse potenti. Integer accumsan accumsan
+                            est, ac accumsan nunc sollicitudin id. Pellentesque tortor lectus, faucibus vitae fermentum vitae,
+                            laoreet sit amet erat. Cras luctus, turpis a suscipit venenatis.turpis a suscipit venenatis
+                            lkskdskds
+                        </p>
+                        <a href="/post.html" class="btn post-link">Read More</a>
+                    </div>
+                </div>
+                <div class="comment reply">
+                    <div class="comment-avatar">
+                        <img src="images/avatar.jpg">
+                    </div>
+                    <div class="comment-body">
+                        <span class="user-name">Nick Roack</span>
+                        <span class="comment-date">March 13, 2010</span>
+                        <p class="comment-text">
+                            Curabitur blandit rutrum pharetra. Donec dictum felis eu eros pretium vulputate.
+                            Etiam quis nulla ac turpis molestie tempus et in purus. Suspendisse potenti. Integer accumsan accumsan
+                            est, ac accumsan nunc sollicitudin id. Pellentesque tortor lectus, faucibus vitae fermentum vitae
+                        </p>
+                        <a href="/post.html" class="btn post-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="comment-form">
+            <h1>Leave a reply</h1>
+            <input id="comment-name" type="text" placeholder="Name">
+            <input id="comment-email" type="email" placeholder="Email">
+            <textarea id="comment-text" placeholder="Message"></textarea>
+            <input type="submit" value="Post" class="btn post-link">
+        </form>
+    </div>
+</div>

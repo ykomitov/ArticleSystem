@@ -8,6 +8,6 @@
 
         public int TotalPages { get; set; }
 
-        public IEnumerable<ArticlesViewModel> Articles { get; set; }
+        public IEnumerable<ArticleViewModel> Articles { get; set; }
     }
 }

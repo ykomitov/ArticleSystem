@@ -40,7 +40,7 @@
                   .OrderBy(x => x.CreatedOn)
                   .Skip((page - 1) * ItemsPerPage)
                   .Take(ItemsPerPage)
-                  .To<ArticlesViewModel>()
+                  .To<ArticleViewModel>()
                   .ToList(),
                 10 * 60);
 
@@ -52,6 +52,17 @@
             };
 
             return this.View(viewModel);
+        }
+
+        public ActionResult NewsArticleDetails(string id)
+        {
+            int articleId = int.Parse(id);
+            var article = this.articles
+                .GetById(articleId)
+                .To<ArticleViewModel>()
+                .FirstOrDefault();
+
+            return this.View(article);
         }
 
         public ActionResult Tech()

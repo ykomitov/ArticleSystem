@@ -1,4 +1,6 @@
-﻿@model ArticleSystem.Web.ViewModels.Articles.PagedArticlesViewModel
+﻿@using ArticleSystem.Web.Helpers
+
+@model ArticleSystem.Web.ViewModels.Articles.PagedArticlesViewModel
 
 <div id="main-content" class="inner-page self-clear">
     <aside class="inner-page">
@@ -41,12 +43,11 @@
             {
             <div class="post-preview">
                 <h1>@article.Title</h1>
-                <p class="post-info">
-                    Posted by <span class="post-user">@article.Author</span> on <span class="post-date">@Html.DisplayFor(d => article.CreatedOn)</span> in <span class="post-category">@article.Category</span> |
-                    <span class="post-comments">@article.Comments comments</span>
-                </p>
+                @Html.Partial("_PostInfo", article)
                 <div class="post-img-container">
-                    @{
+                    <img src="@ImageFromDb.Image(article.HeaderImage)" />
+                    
+                    @*@{
                         if (article.HeaderImage != null)
                         {
                             string imageBase64 = Convert.ToBase64String(article.HeaderImage);
@@ -58,10 +59,10 @@
                         {
                             <img src="~/images/default-header-img.jpg">
                         }
-                    }
+                    }*@
                 </div>
                 <div class="post-text">@Html.Raw(article.TextHtml)</div>
-                <a href="~/Articles/@article.Category/@article.Id" class="btn post-link">Read More</a>
+                <a href="~/Articles/@string.Format("{0}ArticleDetails", @article.Category)/@article.Id" class="btn post-link">Read More</a>
             </div>
         }
         <div class="pager">

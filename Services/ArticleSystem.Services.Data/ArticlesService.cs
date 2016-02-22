@@ -16,10 +16,9 @@
             this.articles = articles;
         }
 
-        public Article GetById(int id)
+        public IQueryable<Article> GetById(int id)
         {
-            var article = this.articles.GetById(id);
-            return article;
+            return this.articles.All().Where(a => a.Id == id);
         }
 
         public IQueryable<Article> GetAll()
