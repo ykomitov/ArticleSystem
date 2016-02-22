@@ -1,7 +1,7 @@
 ﻿namespace ArticleSystem.Data.Models
 {
     using System.Collections.Generic;
-    using ArticleSystem.Data.Common.Models;
+    using Common.Models;
 
     public class Comment : BaseModel<int>
     {

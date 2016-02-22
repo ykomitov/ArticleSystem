@@ -45,7 +45,7 @@
                 <h1>@article.Title</h1>
                 @Html.Partial("_PostInfo", article)
                 <div class="post-img-container">
-                    <img src="@ImageFromDb.Image(article.HeaderImage)" />
+                    <img src="@ImageFromDb.Image(article.HeaderImage, "header")" />
                     
                     @*@{
                         if (article.HeaderImage != null)

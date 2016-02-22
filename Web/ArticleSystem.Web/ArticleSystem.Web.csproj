@@ -218,7 +218,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\Articles\ArticleViewModel.cs" />
+    <Compile Include="ViewModels\Articles\ArticleDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Articles\CommentDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Articles\CommentReplyViewModel.cs" />
     <Compile Include="ViewModels\Articles\PagedArticlesViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />

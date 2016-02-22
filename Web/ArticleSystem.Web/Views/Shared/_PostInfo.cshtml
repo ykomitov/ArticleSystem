@@ -1,6 +1,6 @@
-﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleViewModel
+﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
 
 <p class="post-info">
     Posted by <span class="post-user">@Model.Author</span> on <span class="post-date">@Html.DisplayFor(d => Model.CreatedOn)</span> in <span class="post-category">@Model.Category</span> |
-    <span class="post-comments">@Model.Comments comments</span>
+    <span class="post-comments">@Model.TotalComments comments</span>
 </p>

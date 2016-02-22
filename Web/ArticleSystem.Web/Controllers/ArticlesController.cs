@@ -13,11 +13,13 @@
         private const int ItemsPerPage = 2;
 
         private readonly IArticlesService articles;
+        private readonly ICommentsService comments;
         private readonly ICategoriesService categories;
 
-        public ArticlesController(IArticlesService articles, ICategoriesService categories)
+        public ArticlesController(IArticlesService articles, ICommentsService comments, ICategoriesService categories)
         {
             this.articles = articles;
+            this.comments = comments;
             this.categories = categories;
         }
 
@@ -40,7 +42,7 @@
                   .OrderBy(x => x.CreatedOn)
                   .Skip((page - 1) * ItemsPerPage)
                   .Take(ItemsPerPage)
-                  .To<ArticleViewModel>()
+                  .To<ArticleDetailsViewModel>()
                   .ToList(),
                 10 * 60);
 
@@ -59,8 +61,16 @@
             int articleId = int.Parse(id);
             var article = this.articles
                 .GetById(articleId)
-                .To<ArticleViewModel>()
+                .To<ArticleDetailsViewModel>()
                 .FirstOrDefault();
+
+            var comments = this.comments
+                .GetAll()
+                .Where(c => c.ArticleId == articleId)
+                .To<CommentDetailsViewModel>()
+                .ToList();
+
+            article.Comments = comments;
 
             return this.View(article);
         }

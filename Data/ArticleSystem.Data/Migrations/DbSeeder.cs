@@ -341,7 +341,7 @@
                             };
 
                             parentComment.Comments.Add(commentReply);
-                            context.Comments.Add(commentReply);
+                            context.SaveChanges();
                         }
                     }
 

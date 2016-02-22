@@ -791,7 +791,7 @@ footer {
 
     #comments-container .comment.reply {
         width: 460px;
-        float: right;
+        margin-left: 83px;
     }
 
     #comments-container .comment {
@@ -1094,7 +1094,7 @@ footer {
             }
 
             #wrap nav li {
-                margin: 0 20px 0 0;
+                margin: 0 19px 0 0;
             }
 
     #main-content.inner-page {

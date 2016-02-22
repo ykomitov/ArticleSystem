@@ -10,6 +10,8 @@
 
     public interface ICommentsService
     {
+        IQueryable<Comment> GetAll();
+
         Comment GetById(int id);
     }
 }

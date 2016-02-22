@@ -1,6 +1,11 @@
 ﻿@using ArticleSystem.Web.Helpers
 
-@model ArticleSystem.Web.ViewModels.Articles.ArticleViewModel
+@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
+
+@{ 
+    ViewBag.Title = Model.Title;
+    ViewBag.Subtitle = string.Format("Posted by {0} on {1:dd MMM yyyy}", Model.Author, Model.CreatedOn);
+}
 
 <div id="main-content" class="inner-page self-clear">
     <aside class="inner-page">
@@ -43,44 +48,43 @@
             @Html.Partial("_PostInfo")
             <div class="post-text">
                 <div class="post-img-container">
-                    <img src="@ImageFromDb.Image(Model.HeaderImage)" />
+                    <img src="@ImageFromDb.Image(Model.HeaderImage, "header")" />
                 </div>
                 @Html.Raw(Model.TextHtml)
             </div>
             <div id="comments-container">
-                <h1><span id="number-of-comments">30</span> Comments</h1>
-                <div class="comment">
-                    <div class="comment-avatar">
-                        <img src="images/avatar.jpg">
-                    </div>
-                    <div class="comment-body">
-                        <span class="user-name">Nick Roack</span>
-                        <span class="comment-date">March 13, 2010</span>
-                        <p class="comment-text">
-                            Curabitur blandit rutrum pharetra. Donec dictum felis eu eros pretium vulputate.
-                            Etiam quis nulla ac turpis molestie tempus et in purus. Suspendisse potenti. Integer accumsan accumsan
-                            est, ac accumsan nunc sollicitudin id. Pellentesque tortor lectus, faucibus vitae fermentum vitae,
-                            laoreet sit amet erat. Cras luctus, turpis a suscipit venenatis.turpis a suscipit venenatis
-                            lkskdskds
-                        </p>
-                        <a href="/post.html" class="btn post-link">Read More</a>
-                    </div>
-                </div>
-                <div class="comment reply">
-                    <div class="comment-avatar">
-                        <img src="images/avatar.jpg">
-                    </div>
-                    <div class="comment-body">
-                        <span class="user-name">Nick Roack</span>
-                        <span class="comment-date">March 13, 2010</span>
-                        <p class="comment-text">
-                            Curabitur blandit rutrum pharetra. Donec dictum felis eu eros pretium vulputate.
-                            Etiam quis nulla ac turpis molestie tempus et in purus. Suspendisse potenti. Integer accumsan accumsan
-                            est, ac accumsan nunc sollicitudin id. Pellentesque tortor lectus, faucibus vitae fermentum vitae
-                        </p>
-                        <a href="/post.html" class="btn post-link">Read More</a>
-                    </div>
-                </div>
+                <h1><span id="number-of-comments">@Model.TotalComments</span> Comments</h1>
+                @{
+                    foreach (var comment in Model.Comments)
+                    {
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="@ImageFromDb.Image(comment.AuthorAvatar, "comment")">
+                            </div>
+                            <div class="comment-body">
+                                <span class="user-name">@comment.Author</span>
+                                <span class="comment-date">@comment.CreatedOn</span>
+                                <p class="comment-text">@comment.CommentText</p>
+                                <a href="/post.html" class="btn post-link">Read More</a>
+                            </div>
+                        </div>
+
+                        foreach (var reply in comment.Comments)
+                        {
+                            <div class="comment reply">
+                                <div class="comment-avatar">
+                                    <img src="@ImageFromDb.Image(reply.AuthorAvatar, "comment")">
+                                </div>
+                                <div class="comment-body">
+                                    <span class="user-name">@reply.Author</span>
+                                    <span class="comment-date">@reply.CreatedOn</span>
+                                    <p class="comment-text">@reply.CommentText</p>
+                                    <a href="/post.html" class="btn post-link">Read More</a>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
             </div>
         </div>
         <form id="comment-form">

@@ -4,10 +4,11 @@
 
     public class ImageFromDb
     {
-        public static string Image(byte[] imageAsByteArr)
-        {
-            const string DefaultHeaderImage = "~/images/default-header-img.jpg";
+        private const string DefaultHeaderImage = "/images/default-header-img.jpg";
+        private const string DefaultCommentImage = "/images/avatar.jpg";
 
+        public static string Image(byte[] imageAsByteArr, string type)
+        {
             if (imageAsByteArr != null)
             {
                 string imageBase64 = Convert.ToBase64String(imageAsByteArr);
@@ -15,7 +16,18 @@
             }
             else
             {
-                return DefaultHeaderImage;
+                if (type == "header")
+                {
+                    return DefaultHeaderImage;
+                }
+                else if (type == "comment")
+                {
+                    return DefaultCommentImage;
+                }
+                else
+                {
+                    throw new Exception("Could not get image from database. Check your custom helper!");
+                }
             }
         }
     }
