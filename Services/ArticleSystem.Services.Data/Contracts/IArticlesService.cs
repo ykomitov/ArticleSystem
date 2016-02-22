@@ -6,6 +6,8 @@
 
     public interface IArticlesService
     {
+        IQueryable<Article> GetAll();
+
         Article GetById(int id);
     }
 }

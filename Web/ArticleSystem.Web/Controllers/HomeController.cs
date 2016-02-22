@@ -5,19 +5,20 @@
 
     public class HomeController : BaseController
     {
-        private readonly IArticlesService jokes;
-        private readonly ICategoriesService jokeCategories;
+        private readonly IArticlesService articles;
+        private readonly ICategoriesService categories;
 
-        public HomeController(
-            IArticlesService jokes,
-            ICategoriesService jokeCategories)
+        public HomeController(IArticlesService articles, ICategoriesService categories)
         {
-            this.jokes = jokes;
-            this.jokeCategories = jokeCategories;
+            this.articles = articles;
+            this.categories = categories;
         }
 
         public ActionResult Index()
         {
+            this.ViewBag.Title = "Welcome to our technology blog!";
+            this.ViewBag.Subtitle = "Enjoy the latest news about technology, gadgets, science and software";
+
             return this.View();
         }
     }

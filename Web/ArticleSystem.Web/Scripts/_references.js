@@ -4,3 +4,6 @@
 /// <reference path="jquery.validate.unobtrusive.js" />
 /// <reference path="jquery-2.2.0.js" />
 /// <reference path="jquery-2.2.0.min.js" />
+/// <reference path="site/slick.min.js" />
+/// <reference path="site/slick-init.js" />
+/// <reference path="site/slider-yzk.js" />

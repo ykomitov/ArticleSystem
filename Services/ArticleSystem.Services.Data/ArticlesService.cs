@@ -21,5 +21,10 @@
             var article = this.articles.GetById(id);
             return article;
         }
+
+        public IQueryable<Article> GetAll()
+        {
+            return this.articles.All();
+        }
     }
 }
