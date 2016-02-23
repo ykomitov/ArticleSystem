@@ -1,54 +1,20 @@
-﻿<div class="slider">
-    <div>
-        <img src="images/chameleon-1.jpeg" />
-        <div class="slider-info-y">
-            <h1>1. Your post title goes over here</h1>
-            <p>
-                Cras vitae sem leo. Nunc posuere pharetra nunc, a scelerisque justo viverra sed. Aenean ut lorem mi.
-                Vestibulum facilisis facilisis nisi a sollicitudin. Nullam in pulvinar lectus. Cras molestie adipiscing
-                porttitor. Donec est sapien, adipiscing vitae semper eget, euismod sit amet mauris. Vivamus justo diam,
-                sagittis a feugiat sit amet, egestas ut
-            </p>
-            <div class="read-more"><a href="/post.html">Read more</a></div>
+﻿@using ArticleSystem.Web.ViewModels.Home
+@using ArticleSystem.Web.Helpers
+
+@{ 
+    var articles = (List<IndexSliderArticlesViewModel>)ViewBag.Articles;
+}
+
+<div class="slider">
+    @foreach (var article in articles)
+    {
+        <div>
+            <img src="@ImageFromDb.Image(article.SliderImage, "slider")" />
+            <div class="slider-info-y">
+                <h1>@article.Title</h1>
+                @Html.Raw(article.TextHtml)
+                <div class="read-more"><a href="~/Articles/Details/@article.Id">Read more</a></div>
+            </div>
         </div>
-    </div>
-    <div>
-        <img src="images/chameleon-2.jpeg" />
-        <div class="slider-info-y">
-            <h1>2. Your post title goes over here</h1>
-            <p>
-                Cras vitae sem leo. Nunc posuere pharetra nunc, a scelerisque justo viverra sed. Aenean ut lorem mi.
-                Vestibulum facilisis facilisis nisi a sollicitudin. Nullam in pulvinar lectus. Cras molestie adipiscing
-                porttitor. Donec est sapien, adipiscing vitae semper eget, euismod sit amet mauris. Vivamus justo diam,
-                sagittis a feugiat sit amet, egestas ut
-            </p>
-            <div class="read-more"><a href="/post.html">Read more</a></div>
-        </div>
-    </div>
-    <div>
-        <img src="images/chameleon-3.jpeg" />
-        <div class="slider-info-y">
-            <h1>3. Your post title goes right over here</h1>
-            <p>
-                Cras vitae sem leo. Nunc posuere pharetra nunc, a scelerisque justo viverra sed. Aenean ut lorem mi.
-                Vestibulum facilisis facilisis nisi a sollicitudin. Nullam in pulvinar lectus. Cras molestie adipiscing
-                porttitor. Donec est sapien, adipiscing vitae semper eget, euismod sit amet mauris. Vivamus justo diam,
-                sagittis a feugiat sit amet, egestas ut
-            </p>
-            <div class="read-more"><a href="/post.html">Read more</a></div>
-        </div>
-    </div>
-    <div>
-        <img src="images/chameleon-4.jpeg" />
-        <div class="slider-info-y">
-            <h1>4. Your post title goes over here</h1>
-            <p>
-                Cras vitae sem leo. Nunc posuere pharetra nunc, a scelerisque justo viverra sed. Aenean ut lorem mi.
-                Vestibulum facilisis facilisis nisi a sollicitudin. Nullam in pulvinar lectus. Cras molestie adipiscing
-                porttitor. Donec est sapien, adipiscing vitae semper eget, euismod sit amet mauris. Vivamus justo diam,
-                sagittis a feugiat sit amet, egestas ut
-            </p>
-            <div class="read-more"><a href="#">Read more</a></div>
-        </div>
-    </div>
+    }
 </div>

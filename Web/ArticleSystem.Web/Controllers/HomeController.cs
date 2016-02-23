@@ -1,8 +1,11 @@
 ﻿namespace ArticleSystem.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
     using Common;
+    using Infrastructure.Mapping;
     using Services.Data.Contracts;
+    using ViewModels.Home;
 
     public class HomeController : BaseController
     {
@@ -20,13 +23,19 @@
             this.ViewBag.Title = GlobalConstants.HomePageTitle;
             this.ViewBag.Subtitle = GlobalConstants.HomePageSubtitle;
 
-            // select 4 latest articles from db
-            // add them to the slider
+            var sliderArticles = this.articles
+                .GetSliderArticles()
+                .To<IndexSliderArticlesViewModel>()
+                .ToList();
 
-            // select 6 more articles (top rating) from db
-            // add them to the info
+            this.ViewBag.Articles = sliderArticles;
 
-            return this.View();
+            var viewModel = this.articles
+                .GetMainContentArticles()
+                .To<IndexTopRatedArticlesViewModel>()
+                .ToList();
+
+            return this.View(viewModel);
         }
     }
 }

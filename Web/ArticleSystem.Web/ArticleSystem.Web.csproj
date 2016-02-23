@@ -222,6 +222,8 @@
     <Compile Include="ViewModels\Articles\CommentDetailsViewModel.cs" />
     <Compile Include="ViewModels\Articles\CommentReplyViewModel.cs" />
     <Compile Include="ViewModels\Articles\PagedArticlesViewModel.cs" />
+    <Compile Include="ViewModels\Home\IndexSliderArticlesViewModel.cs" />
+    <Compile Include="ViewModels\Home\IndexTopRatedArticlesViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -353,7 +355,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

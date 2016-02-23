@@ -6,6 +6,7 @@
     {
         private const string DefaultHeaderImage = "/images/default-header-img.jpg";
         private const string DefaultCommentImage = "/images/avatar.jpg";
+        private const string DefaultSliderImage = "/images/chameleon-2.jpeg";
 
         public static string Image(byte[] imageAsByteArr, string type)
         {
@@ -23,6 +24,10 @@
                 else if (type == "comment")
                 {
                     return DefaultCommentImage;
+                }
+                else if (type == "slider")
+                {
+                    return DefaultSliderImage;
                 }
                 else
                 {

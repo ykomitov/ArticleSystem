@@ -8,8 +8,12 @@
     {
         IQueryable<Article> GetAll();
 
+        IQueryable<Article> GetById(int id);
+
         IQueryable<Article> GetPagedArticles(int categoryId, int page, int pageSize);
 
-        IQueryable<Article> GetById(int id);
+        IQueryable<Article> GetSliderArticles();
+
+        IQueryable<Article> GetMainContentArticles();
     }
 }

@@ -27,7 +27,7 @@
 
         public int TotalComments { get; set; }
 
-        public virtual ICollection<CommentDetailsViewModel> Comments { get; set; }
+        public ICollection<CommentDetailsViewModel> Comments { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

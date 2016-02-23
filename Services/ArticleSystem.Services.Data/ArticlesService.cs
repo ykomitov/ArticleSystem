@@ -15,16 +15,16 @@
             this.articles = articles;
         }
 
+        public IQueryable<Article> GetAll()
+        {
+            return this.articles.All();
+        }
+
         public IQueryable<Article> GetById(int id)
         {
             return this.articles
                 .All()
                 .Where(a => a.Id == id);
-        }
-
-        public IQueryable<Article> GetAll()
-        {
-            return this.articles.All();
         }
 
         public IQueryable<Article> GetPagedArticles(int categoryId, int page, int pageSize)
@@ -35,6 +35,22 @@
                 .OrderBy(a => a.CreatedOn)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize);
+        }
+
+        public IQueryable<Article> GetSliderArticles()
+        {
+            return this.articles
+                .All()
+                .OrderBy(a => a.CreatedOn)
+                .Take(4);
+        }
+
+        public IQueryable<Article> GetMainContentArticles()
+        {
+            return this.articles
+                .All()
+                .OrderBy(a => a.Votes.Sum(v => (int)v.VoteType))
+                .Take(6);
         }
     }
 }

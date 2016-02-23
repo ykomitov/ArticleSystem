@@ -16,7 +16,7 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public virtual ICollection<CommentReplyViewModel> Comments { get; set; }
+        public ICollection<CommentReplyViewModel> Comments { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
