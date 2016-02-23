@@ -32,7 +32,7 @@
             return this.articles
                 .All()
                 .Where(a => a.CategoryId == categoryId)
-                .OrderBy(a => a.CreatedOn)
+                .OrderByDescending(a => a.CreatedOn)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize);
         }
@@ -41,7 +41,7 @@
         {
             return this.articles
                 .All()
-                .OrderBy(a => a.CreatedOn)
+                .OrderByDescending(a => a.CreatedOn)
                 .Take(4);
         }
 
@@ -49,7 +49,7 @@
         {
             return this.articles
                 .All()
-                .OrderBy(a => a.Votes.Sum(v => (int)v.VoteType))
+                .OrderByDescending(a => a.Votes.Sum(v => (int)v.VoteType))
                 .Take(numberOfArticles);
         }
 
@@ -57,7 +57,7 @@
         {
             return this.articles
                 .All()
-                .OrderBy(a => a.CreatedOn)
+                .OrderByDescending(a => a.CreatedOn)
                 .Take(numberOfArticles);
         }
     }

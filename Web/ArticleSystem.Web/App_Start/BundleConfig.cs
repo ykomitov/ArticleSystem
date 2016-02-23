@@ -16,7 +16,7 @@
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Scripts/jquery-{version}.js"));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
-            bundles.Add(new ScriptBundle("~/bundles/sitescripts").Include("~/Scripts/site/slick.min.js", "~/Scripts/site/slick-init.js", "~/Scripts/site/slider-yzk.js"));
+            bundles.Add(new ScriptBundle("~/bundles/sitescripts").Include("~/Scripts/site/slick.min.js", "~/Scripts/site/slick-init.js", "~/Scripts/site/slider-yzk.js", "~/Scripts/site/voting.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)

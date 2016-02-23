@@ -1,6 +1,15 @@
 ﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
 
 <p class="post-info">
-    Posted by <span class="post-user">@Model.Author</span> on <span class="post-date">@Html.DisplayFor(d => Model.CreatedOn)</span> in <span class="post-category">@Model.Category</span> |
-    <span class="post-comments">@Model.TotalComments comments</span>
+    Posted by <span class="post-user">@Model.Author</span><span class="post-date"> on @Html.DisplayFor(d => Model.CreatedOn) in </span><span class="post-category">@Model.Category</span> |
+    <span class="post-comments">@Model.TotalComments comments</span> |
+    @if (User.Identity.IsAuthenticated)
+    {
+        <span data-id="@Model.Id" data-action="down"><img src="~/images/downvote.png" width="15" /></span>
+    }
+    <span class="post-votes" data-id="@Model.Id" data-action="votesCount">@Model.Votes votes</span>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <span data-id="@Model.Id" data-action="up"><img src="~/images/upvote.png" width="15" /></span>
+    }
 </p>

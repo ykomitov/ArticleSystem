@@ -1,7 +1,7 @@
 ﻿namespace ArticleSystem.Services.Data
 {
     using System;
-
+    using System.Linq;
     using ArticleSystem.Data.Common;
     using ArticleSystem.Data.Models;
     using Contracts;
@@ -15,9 +15,20 @@
             this.votes = votes;
         }
 
-        public Vote GetById(int id)
+        public void Add(Vote newVote)
         {
-            throw new NotImplementedException();
+            this.votes.Add(newVote);
+            this.votes.Save();
+        }
+
+        public IQueryable<Vote> GetAll()
+        {
+            return this.votes.All();
+        }
+
+        public void SaveChanges()
+        {
+            this.votes.Save();
         }
     }
 }

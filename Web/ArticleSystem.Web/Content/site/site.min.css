@@ -2,6 +2,10 @@ body {
     background-image: url("/images/bg-texture.jpg");
 }
 
+span[data-action="up"], span[data-action="down"] {
+    cursor: pointer;
+}
+
 #form-button-btst {
     padding-bottom: 20px;
 }
@@ -491,6 +495,7 @@ h3 {
 #main.inner-page {
     position: relative;
     width: 585px;
+    min-height: 650px;
     padding: 35px 0 50px 0;
     border-right: 1px solid #f0f0f0;
 }
@@ -535,42 +540,47 @@ h3 {
             color: #a3a3a3;
         }
 
-        #main.inner-page .post-preview .post-img-container {
-            float: left;
-            width: 197px;
-            height: 197px;
-            padding: 6px;
-            border: 1px solid #f0f0f0;
-        }
+.post-votes {
+    color: #a3a3a3;
+    margin: 0 10px;
+}
 
-            #main.inner-page .post-preview .post-img-container img {
-                width: 100%;
-            }
+#main.inner-page .post-preview .post-img-container {
+    float: left;
+    width: 197px;
+    height: 197px;
+    padding: 6px;
+    border: 1px solid #f0f0f0;
+}
 
-        #main.inner-page .post-preview .post-text {
-            height: 197px;
-            padding: 0 38px 0 28px;
-            overflow: hidden;
-            line-height: 20px;
-            color: #929292;
-        }
-
-        #main.inner-page .post-preview.post-full .post-info {
-            margin: 0 0 20px;
-        }
-
-        #main.inner-page .post-preview.post-full .post-text {
-            padding: 0 38px 0 0;
-            height: 100%;
-        }
-
-        #main.inner-page .post-preview.post-full .post-img-container {
-            margin: 0 25px 0 0;
-        }
-
-    #main.inner-page.post {
-        height: 100%;
+    #main.inner-page .post-preview .post-img-container img {
+        width: 100%;
     }
+
+#main.inner-page .post-preview .post-text {
+    height: 197px;
+    padding: 0 38px 0 28px;
+    overflow: hidden;
+    line-height: 20px;
+    color: #929292;
+}
+
+#main.inner-page .post-preview.post-full .post-info {
+    margin: 0 0 20px;
+}
+
+#main.inner-page .post-preview.post-full .post-text {
+    padding: 0 38px 0 0;
+    height: 100%;
+}
+
+#main.inner-page .post-preview.post-full .post-img-container {
+    margin: 0 25px 0 0;
+}
+
+#main.inner-page.post {
+    height: 100%;
+}
 
 aside.inner-page {
     width: 275px;
@@ -581,7 +591,6 @@ aside.inner-page {
 
     aside.inner-page .aside-element {
         padding: 0 0 55px 50px;
-        border-left: 1px solid #f0f0f0;
     }
 
         aside.inner-page .aside-element a {
@@ -899,326 +908,6 @@ footer {
     background: -moz-linear-gradient(top,#f8f8f8 0,#fff 13%,#fff 87%,#f8f8f8 100%);
     background: -webkit-linear-gradient(top,#f8f8f8 0,#fff 13%,#fff 87%,#f8f8f8 100%);
     background: linear-gradient(to bottom,#f8f8f8 0,#fff 13%,#fff 87%,#f8f8f8 100%);
-}
-
-@media only screen and (max-width:980px) {
-    #wrap {
-        width: 760px;
-    }
-
-        #wrap nav li {
-            margin: 0 15px 0 0;
-        }
-
-    #main-content {
-        width: 660px;
-    }
-
-        #main-content h3 {
-            font-size: 15px;
-        }
-
-    #info-container .list h3 {
-        height: 55px;
-    }
-
-    #page-heading {
-        width: 715px;
-        height: 170px;
-    }
-
-        #page-heading h3 {
-            margin: 10px 0;
-        }
-
-        #page-heading.inner-page {
-            height: 100%;
-        }
-
-            #page-heading.inner-page h3 {
-                margin: 15px 0;
-            }
-
-    .list .item {
-        width: 175px;
-    }
-
-    #blog-posts {
-        width: 40%;
-    }
-
-    #text-widget {
-        display: none;
-    }
-
-    #main.inner-page {
-        width: 410px;
-    }
-
-        #main.inner-page .post-preview p.post-info {
-            font-size: 13px;
-        }
-
-        #main.inner-page .post-preview .post-img-container {
-            width: 150px;
-            height: 150px;
-        }
-
-    #comments-container {
-        width: 382px;
-    }
-
-        #comments-container .comment {
-            width: 380px;
-        }
-
-            #comments-container .comment.reply {
-                width: 320px;
-            }
-
-    #comment-form {
-        width: 400px;
-    }
-
-    #comment-text {
-        width: 346px;
-    }
-
-    #main.inner-page .post-preview h1 {
-        font-size: 25px;
-    }
-}
-
-@media only screen and (max-width:840px) {
-    #blog-posts, #recent-comments, #recent-posts, #text-widget, .cd-panel, body .cd-btn, footer #site-info h6, footer #site-info p {
-        display: none;
-    }
-
-    #info-container .list h3 {
-        font-size: 15px;
-        height: 55px;
-    }
-
-    #wrap {
-        width: 670px;
-        margin: 10px auto 0;
-    }
-
-    #main-content {
-        width: 570px;
-    }
-
-        #main-content h3 {
-            font-size: 18px;
-        }
-
-        #main-content.inner-page {
-            width: 650px;
-        }
-
-    #page-heading {
-        width: 620px;
-        height: 140px;
-    }
-
-        #page-heading h1 {
-            font-size: 24px;
-        }
-
-        #page-heading h3 {
-            font-size: 16px;
-            margin: 5px 0;
-        }
-
-        #page-heading.inner-page {
-            width: 660px;
-        }
-
-    #main.inner-page .post-preview .post-text {
-        padding: 0 0 0 20px;
-    }
-
-    #main.inner-page .post-preview.post-full .post-text {
-        padding: 0;
-    }
-
-    #multimedia-container {
-        height: 170px;
-    }
-
-    #multimedia {
-        float: none;
-        margin: 0;
-        width: 100%;
-    }
-
-    #info-container .list .item {
-        margin: 0 15px 20px 0;
-    }
-
-        #info-container .list .item img {
-            width: 90%;
-        }
-
-    #wrap nav.inner-page a {
-        text-transform: none;
-    }
-
-    #comments-container .comment {
-        width: 370px;
-    }
-
-        #comments-container .comment.reply {
-            width: 310px;
-            right: 10px;
-        }
-
-    #main.inner-page .post-preview h1 {
-        font-size: 24px;
-    }
-}
-
-@media only screen and (max-width:690px) {
-    #wrap nav a, #wrap nav.inner-page a {
-        text-transform: uppercase;
-    }
-
-    #loginForm {
-        padding: 0 40px !important;
-    }
-
-    footer {
-        height: 100%;
-        margin: 0 0 20px 0;
-    }
-
-        footer > p {
-            margin: 0 50px 18px 0;
-        }
-
-        footer img {
-            display: none;
-        }
-
-    #page-heading {
-        height: 100px;
-    }
-
-    #main-content, #wrap {
-        width: 460px;
-    }
-
-        #location-bar, #main-content aside, #multimedia-container, #search-box, #sharing-icons, #site-info, header .slider {
-            display: none;
-        }
-
-    #logo, footer p {
-        text-align: center;
-        position: relative;
-    }
-
-    #wrap {
-        margin: 10px auto 0;
-    }
-
-        #wrap nav {
-            float: none;
-            margin-top: 13px;
-            padding: 0 0 0 7px;
-        }
-
-            #wrap nav a {
-                font-size: 14px;
-            }
-
-            #wrap nav li {
-                margin: 0 19px 0 0;
-            }
-
-    #main-content.inner-page {
-        width: 90%;
-        margin: 0 auto;
-        padding: 20px 5px 0;
-    }
-
-    #main.inner-page {
-        border: none;
-        padding: 15px 0 50px 0;
-    }
-
-    #page-heading {
-        width: 90%;
-        padding: 10px;
-        margin: 15px auto;
-    }
-
-    #main.inner-page .post-preview h1 {
-        font-size: 22px;
-    }
-
-    #page-heading h1 {
-        margin-top: 10px;
-    }
-
-    #page-heading.inner-page {
-        width: 100%;
-        margin-top: 25px;
-        padding: 0;
-    }
-
-    #info-container {
-        margin-top: 10px;
-    }
-
-        #info-container .list .item {
-            margin: 10px auto;
-            padding: 0 0 0 20px;
-            float: none;
-            width: 80%;
-        }
-
-            #info-container .list .item img, #info-container .list .item p {
-                width: 90%;
-            }
-
-            #info-container .list .item h3 {
-                margin-top: 20px;
-                font-size: 20px;
-            }
-
-    footer {
-        margin: 0 0 20px 0;
-        padding: 10px;
-    }
-
-        footer p {
-            margin: 0;
-        }
-
-    #logo {
-        width: 100%;
-        height: 75px;
-    }
-
-        #logo img {
-            margin: 26px 0 0;
-        }
-
-        #logo #slogan {
-            display: block;
-            right: -23px;
-        }
-
-    #header-common.inner-page #logo-text {
-        right: 0;
-        top: -25px;
-    }
-
-    #header-common.inner-page #slogan {
-        bottom: 25px;
-        right: -23px;
-        width: 100%;
-    }
 }
 
 @charset 'UTF-8';
@@ -1601,4 +1290,332 @@ footer {
 
 .post-text p {
     margin: 0 0 10px;
+}
+
+@media only screen and (max-width:980px) {
+    #wrap {
+        width: 760px;
+    }
+
+        #wrap nav li {
+            margin: 0 15px 0 0;
+        }
+
+    #main-content {
+        width: 660px;
+    }
+
+        #main-content h3 {
+            font-size: 15px;
+        }
+
+    #info-container .list h3 {
+        height: 55px;
+    }
+
+    #page-heading {
+        width: 715px;
+        height: 170px;
+    }
+
+        #page-heading h3 {
+            margin: 10px 0;
+        }
+
+        #page-heading.inner-page {
+            height: 100%;
+        }
+
+            #page-heading.inner-page h3 {
+                margin: 15px 0;
+            }
+
+    .list .item {
+        width: 175px;
+    }
+
+    #blog-posts {
+        width: 40%;
+    }
+
+    #text-widget {
+        display: none;
+    }
+
+    #main.inner-page {
+        width: 410px;
+    }
+
+        #main.inner-page .post-preview p.post-info {
+            font-size: 13px;
+        }
+
+        #main.inner-page .post-preview .post-img-container {
+            width: 150px;
+            height: 150px;
+        }
+
+    #comments-container {
+        width: 382px;
+    }
+
+        #comments-container .comment {
+            width: 380px;
+        }
+
+            #comments-container .comment.reply {
+                width: 320px;
+            }
+
+    #comment-form {
+        width: 400px;
+    }
+
+    #comment-text {
+        width: 346px;
+    }
+
+    #main.inner-page .post-preview h1 {
+        font-size: 25px;
+    }
+
+    .post-date, .post-category {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:840px) {
+    #blog-posts, #recent-comments, #recent-posts, #text-widget, .cd-panel, body .cd-btn, footer #site-info h6, footer #site-info p {
+        display: none;
+    }
+
+    .post-date, .post-category {
+        display: none;
+    }
+
+    #info-container .list h3 {
+        font-size: 15px;
+        height: 55px;
+    }
+
+    #wrap {
+        width: 670px;
+        margin: 10px auto 0;
+    }
+
+    #main-content {
+        width: 570px;
+    }
+
+        #main-content h3 {
+            font-size: 18px;
+        }
+
+        #main-content.inner-page {
+            width: 650px;
+        }
+
+    #page-heading {
+        width: 620px;
+        height: 140px;
+    }
+
+        #page-heading h1 {
+            font-size: 24px;
+        }
+
+        #page-heading h3 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        #page-heading.inner-page {
+            width: 660px;
+        }
+
+    #main.inner-page .post-preview .post-text {
+        padding: 0 0 0 20px;
+    }
+
+    #main.inner-page .post-preview.post-full .post-text {
+        padding: 0;
+    }
+
+    #multimedia-container {
+        height: 170px;
+    }
+
+    #multimedia {
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+
+    #info-container .list .item {
+        margin: 0 15px 20px 0;
+    }
+
+        #info-container .list .item img {
+            width: 90%;
+        }
+
+    #wrap nav.inner-page a {
+        text-transform: none;
+    }
+
+    #comments-container .comment {
+        width: 370px;
+    }
+
+        #comments-container .comment.reply {
+            width: 310px;
+            right: 10px;
+        }
+
+    #main.inner-page .post-preview h1 {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width:690px) {
+    #wrap nav a, #wrap nav.inner-page a {
+        text-transform: uppercase;
+    }
+
+    #loginForm {
+        padding: 0 40px !important;
+    }
+
+    footer {
+        height: 100%;
+        margin: 0 0 20px 0;
+    }
+
+        footer > p {
+            margin: 0 50px 18px 0;
+        }
+
+        footer img {
+            display: none;
+        }
+
+    #page-heading {
+        height: 100px;
+    }
+
+    #main-content, #wrap {
+        width: 460px;
+    }
+
+        #location-bar, #main-content aside, #multimedia-container, #search-box, #sharing-icons, #site-info, header .slider {
+            display: none;
+        }
+
+    #logo, footer p {
+        text-align: center;
+        position: relative;
+    }
+
+    #wrap {
+        margin: 10px auto 0;
+    }
+
+        #wrap nav {
+            float: none;
+            margin-top: 13px;
+            padding: 0 0 0 7px;
+        }
+
+            #wrap nav a {
+                font-size: 14px;
+            }
+
+            #wrap nav li {
+                margin: 0 19px 0 0;
+            }
+
+    #main-content.inner-page {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 5px 0;
+    }
+
+    #main.inner-page {
+        border: none;
+        padding: 15px 0 50px 0;
+    }
+
+    #page-heading {
+        width: 90%;
+        padding: 10px;
+        margin: 15px auto;
+    }
+
+    #main.inner-page .post-preview h1 {
+        font-size: 22px;
+    }
+
+    #page-heading h1 {
+        margin-top: 10px;
+    }
+
+    #page-heading.inner-page {
+        width: 100%;
+        margin-top: 25px;
+        padding: 0;
+    }
+
+    #info-container {
+        margin-top: 10px;
+    }
+
+        #info-container .list .item {
+            margin: 10px auto;
+            padding: 0 0 0 20px;
+            float: none;
+            width: 80%;
+        }
+
+            #info-container .list .item img, #info-container .list .item p {
+                width: 90%;
+            }
+
+            #info-container .list .item h3 {
+                margin-top: 20px;
+                font-size: 20px;
+            }
+
+    footer {
+        margin: 0 0 20px 0;
+        padding: 10px;
+    }
+
+        footer p {
+            margin: 0;
+        }
+
+    #logo {
+        width: 100%;
+        height: 75px;
+    }
+
+        #logo img {
+            margin: 26px 0 0;
+        }
+
+        #logo #slogan {
+            display: block;
+            right: -23px;
+        }
+
+    #header-common.inner-page #logo-text {
+        right: 0;
+        top: -25px;
+    }
+
+    #header-common.inner-page #slogan {
+        bottom: 25px;
+        right: -23px;
+        width: 100%;
+    }
 }
