@@ -29,6 +29,11 @@
         [MaxLength(100)]
         public string SliderImageFileName { get; set; }
 
+        public byte[] IndexImage { get; set; }
+
+        [MaxLength(100)]
+        public string IndexImageFileName { get; set; }
+
         public string AuthorId { get; set; }
 
         [Required]

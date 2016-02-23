@@ -655,13 +655,21 @@ aside.inner-page {
             box-shadow: 1px 1px 2px 1px rgba(0,0,0,.75);
         }
 
-        .list .item:last-child {
+        .list .item.item-last {
             margin-right: 0;
         }
 
 #info-container {
-    margin-top: 45px;
+    margin-top: 30px;
 }
+
+    #info-container .list .item {
+        margin-bottom: 10px;
+    }
+
+    #info-container .list h3 {
+        height: 75px;
+    }
 
 #multimedia-container {
     margin-top: 50px;
@@ -904,8 +912,12 @@ footer {
     }
 
         #main-content h3 {
-            font-size: 18px;
+            font-size: 15px;
         }
+
+    #info-container .list h3 {
+        height: 55px;
+    }
 
     #page-heading {
         width: 715px;
@@ -979,6 +991,11 @@ footer {
         display: none;
     }
 
+    #info-container .list h3 {
+        font-size: 15px;
+        height: 55px;
+    }
+
     #wrap {
         width: 670px;
         margin: 10px auto 0;
@@ -1043,7 +1060,7 @@ footer {
         }
 
     #info-container .list .item {
-        margin: 0 15px 0 0;
+        margin: 0 15px 20px 0;
     }
 
         #info-container .list .item img {

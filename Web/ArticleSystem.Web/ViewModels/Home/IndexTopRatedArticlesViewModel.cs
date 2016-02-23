@@ -11,6 +11,6 @@
 
         public string TextHtml { get; set; }
 
-        public byte[] HeaderImage { get; set; }
+        public byte[] IndexImage { get; set; }
     }
 }

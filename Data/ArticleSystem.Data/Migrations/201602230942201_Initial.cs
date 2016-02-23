@@ -1,5 +1,6 @@
 namespace ArticleSystem.Data.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     
     public partial class Initial : DbMigration
@@ -31,6 +32,8 @@ namespace ArticleSystem.Data.Migrations
                         HeaderImageFileName = c.String(maxLength: 100),
                         SliderImage = c.Binary(),
                         SliderImageFileName = c.String(maxLength: 100),
+                        IndexImage = c.Binary(),
+                        IndexImageFileName = c.String(maxLength: 100),
                         AuthorId = c.String(nullable: false, maxLength: 128),
                         CategoryId = c.Int(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),
