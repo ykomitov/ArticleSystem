@@ -5,5 +5,20 @@
         public const string AdministratorRoleName = "Administrator";
         public const string PowerUserRoleName = "PowerUser ";
         public const string NormalUserRoleName = "User ";
+
+        public const string NewsPageTitle = "Latest news";
+        public const string NewsPageSubtitle = "Enjoy our selection of breaking news from the world of coputing";
+
+        public const string TechPageTitle = "Technology developments";
+        public const string TechPageSubtitle = "Get the latest technology and engineering news and insight";
+
+        public const string DevicesPageTitle = "New devices on the horizon";
+        public const string DevicesPageSubtitle = "Read the articles about the gadgets that caught our attention";
+
+        public const string SoftwarePageTitle = "Software++";
+        public const string SoftwarePageSubtitle = "Recent trends and news in software development";
+
+        public const string SciencePageTitle = "Science";
+        public const string SciencePageSubtitle = "Catch up on the developments in science...";
     }
 }

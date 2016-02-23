@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Caching;
     using System.Web.Mvc;
+    using Common;
     using Infrastructure.Mapping;
     using Services.Data.Contracts;
     using ViewModels.Articles;
@@ -23,25 +24,84 @@
             this.categories = categories;
         }
 
-        public ActionResult News(int id = 1)
+        public ActionResult News(int page = 1)
         {
-            this.ViewBag.Title = "Latest news";
-            this.ViewBag.Subtitle = "Enjoy our selection of breaking news from the world of coputing";
+            this.ViewBag.Title = GlobalConstants.NewsPageTitle;
+            this.ViewBag.Subtitle = GlobalConstants.NewsPageSubtitle;
 
+            var viewModel = this.GetPagedArticlesByCategory("News", page, ItemsPerPage);
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult Tech(int page = 1)
+        {
+            this.ViewBag.Title = GlobalConstants.TechPageTitle;
+            this.ViewBag.Subtitle = GlobalConstants.TechPageSubtitle;
+
+            var viewModel = this.GetPagedArticlesByCategory("Tech", page, ItemsPerPage);
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult Devices(int page = 1)
+        {
+            this.ViewBag.Title = GlobalConstants.DevicesPageTitle;
+            this.ViewBag.Subtitle = GlobalConstants.DevicesPageSubtitle;
+
+            var viewModel = this.GetPagedArticlesByCategory("Devices", page, ItemsPerPage);
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult Soft(int page = 1)
+        {
+            this.ViewBag.Title = GlobalConstants.SoftwarePageTitle;
+            this.ViewBag.Subtitle = GlobalConstants.SoftwarePageSubtitle;
+
+            var viewModel = this.GetPagedArticlesByCategory("Soft", page, ItemsPerPage);
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult Science(int page = 1)
+        {
+            this.ViewBag.Title = GlobalConstants.SciencePageTitle;
+            this.ViewBag.Subtitle = GlobalConstants.SciencePageSubtitle;
+
+            var viewModel = this.GetPagedArticlesByCategory("Science", page, ItemsPerPage);
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var article = this.articles
+                .GetById(id)
+                .To<ArticleDetailsViewModel>()
+                .FirstOrDefault();
+
+            var comments = this.comments
+                .GetArticleComments(id)
+                .To<CommentDetailsViewModel>()
+                .ToList();
+
+            article.Comments = comments;
+
+            return this.View(article);
+        }
+
+        private PagedArticlesViewModel GetPagedArticlesByCategory(string category, int page, int pageSize)
+        {
             PagedArticlesViewModel viewModel;
-
-            var page = id;
-            var allItemsCount = this.articles.GetAll().Where(a => a.Category.Id == 1).Count();
-            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
+            var categoryId = this.categories.GetCategoryId(category);
+            var allArticlesCount = this.articles.GetAll().Where(a => a.Category.Id == 1).Count();
+            var totalPages = (int)Math.Ceiling(allArticlesCount / (decimal)pageSize);
 
             var articlesOnPage = this.Cache.Get(
-                "News_page_" + id,
+                category + "_page_" + page,
                 () => this.articles
-                  .GetAll()
-                  .Where(a => a.Category.Id == 1)
-                  .OrderBy(x => x.CreatedOn)
-                  .Skip((page - 1) * ItemsPerPage)
-                  .Take(ItemsPerPage)
+                  .GetPagedArticles(categoryId, page, pageSize)
                   .To<ArticleDetailsViewModel>()
                   .ToList(),
                 10 * 60);
@@ -53,58 +113,7 @@
                 Articles = articlesOnPage
             };
 
-            return this.View(viewModel);
-        }
-
-        public ActionResult NewsArticleDetails(string id)
-        {
-            int articleId = int.Parse(id);
-            var article = this.articles
-                .GetById(articleId)
-                .To<ArticleDetailsViewModel>()
-                .FirstOrDefault();
-
-            var comments = this.comments
-                .GetAll()
-                .Where(c => c.ArticleId == articleId)
-                .To<CommentDetailsViewModel>()
-                .ToList();
-
-            article.Comments = comments;
-
-            return this.View(article);
-        }
-
-        public ActionResult Tech()
-        {
-            this.ViewBag.Title = "Technology developments";
-            this.ViewBag.Subtitle = "Get the latest technology and engineering news and insight";
-
-            return this.View();
-        }
-
-        public ActionResult Devices()
-        {
-            this.ViewBag.Title = "New devices on the horizon";
-            this.ViewBag.Subtitle = "Read the articles about the gadgets that caught our attention";
-
-            return this.View();
-        }
-
-        public ActionResult Soft()
-        {
-            this.ViewBag.Title = "Software++";
-            this.ViewBag.Subtitle = "Recent trends and news in software development";
-
-            return this.View();
-        }
-
-        public ActionResult Science()
-        {
-            this.ViewBag.Title = "Science";
-            this.ViewBag.Subtitle = "Catch up on the developments in science...";
-
-            return this.View();
+            return viewModel;
         }
     }
 }

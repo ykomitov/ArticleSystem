@@ -7,5 +7,7 @@
     public interface ICategoriesService
     {
         IQueryable<ArticleCategory> GetAll();
+
+        int GetCategoryId(string categoryName);
     }
 }

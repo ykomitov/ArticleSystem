@@ -1,5 +1,6 @@
 ﻿namespace ArticleSystem.Services.Data
 {
+    using System;
     using System.Linq;
     using ArticleSystem.Data.Common;
     using ArticleSystem.Data.Models;
@@ -17,6 +18,13 @@
         public IQueryable<Comment> GetAll()
         {
             return this.comments.All();
+        }
+
+        public IQueryable<Comment> GetArticleComments(int articleId)
+        {
+            return this.comments
+                .All()
+                .Where(c => c.ArticleId == articleId);
         }
 
         public Comment GetById(int id)

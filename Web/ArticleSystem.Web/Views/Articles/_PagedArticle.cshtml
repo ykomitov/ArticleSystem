@@ -1,0 +1,72 @@
+﻿@using ArticleSystem.Web.Helpers
+
+@model ArticleSystem.Web.ViewModels.Articles.PagedArticlesViewModel
+
+<div id="main-content" class="inner-page self-clear">
+    <aside class="inner-page">
+        <div id="aside-blog" class="aside-element">
+            <h3>From the blog</h3>
+            <ul>
+                <li><a href="#">Curabitur blandit rutrum felis pretium</a></li>
+                <li><a href="#">Pharetra donec dictum felis eu quis</a></li>
+                <li><a href="#">Eros pretium vulputate dictum donec</a></li>
+                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
+                <li><a href="#">Suspendisse potenti integer donec</a></li>
+                <li><a href="#">Accumsan nunc sollicitudin id pelle</a></li>
+            </ul>
+        </div>
+        <div id="aside-archives" class="aside-element">
+            <h3>Archives</h3>
+            <ul>
+                <li><a href="#">Curabitur blandit rutrum</a></li>
+                <li><a href="#">Pharetra donec dictum felis eu</a></li>
+                <li><a href="#">Eros pretium vulputate</a></li>
+                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
+                <li><a href="#">Suspendisse potenti integer</a></li>
+                <li><a href="#">Accumsan nunc sollicitudin id</a></li>
+            </ul>
+        </div>
+        <div id="aside-posts" class="aside-element">
+            <h3>Recent posts</h3>
+            <ul>
+                <li><a href="#">Curabitur blandit rutrum</a></li>
+                <li><a href="#">Pharetra donec dictum felis eu</a></li>
+                <li><a href="#">Eros pretium vulputate</a></li>
+                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
+                <li><a href="#">Suspendisse potenti integer</a></li>
+                <li><a href="#">Accumsan nunc sollicitudin id</a></li>
+            </ul>
+        </div>
+    </aside>
+    <div id="main" class="inner-page">
+        @foreach (var article in Model.Articles)
+            {
+            <div class="post-preview">
+                <h1>@article.Title</h1>
+                @Html.Partial("_PostInfo", article)
+                <div class="post-img-container">
+                    <img src="@ImageFromDb.Image(article.HeaderImage, "header")" />
+                </div>
+                <div class="post-text">@Html.Raw(article.TextHtml)</div>
+                <a href="~/Articles/Details/@article.Id" class="btn post-link">Read More</a>
+            </div>
+        }
+        <div class="pager">
+            <div class="pager-buttons">
+                @{
+                    for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        if (i == Model.CurrentPage)
+                        {
+                            <a href="~/Articles/News/@i" class="btn post-link current">@i</a>
+                        }
+                        else
+                        {
+                            <a href="~/Articles/News/@i" class="btn post-link">@i</a>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

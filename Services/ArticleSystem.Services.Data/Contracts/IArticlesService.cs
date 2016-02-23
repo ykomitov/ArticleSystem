@@ -8,6 +8,8 @@
     {
         IQueryable<Article> GetAll();
 
+        IQueryable<Article> GetPagedArticles(int categoryId, int page, int pageSize);
+
         IQueryable<Article> GetById(int id);
     }
 }

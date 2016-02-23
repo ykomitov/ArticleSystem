@@ -1,7 +1,7 @@
 ﻿namespace ArticleSystem.Services.Data
 {
+    using System;
     using System.Linq;
-
     using ArticleSystem.Data.Common;
     using ArticleSystem.Data.Models;
     using Contracts;
@@ -18,6 +18,15 @@
         public IQueryable<ArticleCategory> GetAll()
         {
             return this.categories.All().OrderBy(x => x.Name);
+        }
+
+        public int GetCategoryId(string categoryName)
+        {
+            return this.categories
+                .All()
+                .Where(c => c.Name == categoryName)
+                .FirstOrDefault()
+                .Id;
         }
     }
 }
