@@ -12,7 +12,7 @@
             <img src="@ImageFromDb.Image(article.SliderImage, "slider")" />
             <div class="slider-info-y">
                 <h1>@article.Title</h1>
-                @Html.Raw(article.TextHtml)
+                <p>@TextShortener.ShortenText(article.TextHtml, 240)</p>
                 <div class="read-more"><a href="~/Articles/Details/@article.Id">Read more</a></div>
             </div>
         </div>

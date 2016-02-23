@@ -59,10 +59,10 @@ body {
         margin: 0 0 7px;
         padding: 0;
         font-weight: 300;
-        font-size: 28px;
+        font-size: 26px;
         line-height: 28px;
         text-transform: capitalize;
-        width: 66%;
+        width: 90%;
     }
 
     .slider-info-y p {
@@ -108,11 +108,6 @@ body {
         margin: 90px 0 0 270px;
         padding: 10px 0 0 10px;
     }
-
-        .slider-info-y h1 {
-            width: 80%;
-            text-align: center;
-        }
 }
 
 .cd-btn, .cd-panel-close {
