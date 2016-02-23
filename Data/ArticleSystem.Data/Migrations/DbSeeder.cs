@@ -108,8 +108,8 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 1).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
-                };
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
+            };
 
                 context.Articles.Add(sampleArticle1);
                 context.SaveChanges();
@@ -123,7 +123,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle2),
                     HeaderImageFileName = HeaderImageArticle2,
                     Category = context.ArticleCategories.Where(c => c.Id == 1).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle2);
@@ -138,7 +138,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 1).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle3);
@@ -153,7 +153,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 2).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle4);
@@ -168,7 +168,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle2),
                     HeaderImageFileName = HeaderImageArticle2,
                     Category = context.ArticleCategories.Where(c => c.Id == 2).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle5);
@@ -183,7 +183,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 2).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle6);
@@ -198,7 +198,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle2),
                     HeaderImageFileName = HeaderImageArticle2,
                     Category = context.ArticleCategories.Where(c => c.Id == 3).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle7);
@@ -213,7 +213,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 3).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle8);
@@ -228,7 +228,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle2),
                     HeaderImageFileName = HeaderImageArticle2,
                     Category = context.ArticleCategories.Where(c => c.Id == 4).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle9);
@@ -243,7 +243,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 4).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle10);
@@ -258,7 +258,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle2),
                     HeaderImageFileName = HeaderImageArticle2,
                     Category = context.ArticleCategories.Where(c => c.Id == 5).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle11);
@@ -273,7 +273,7 @@
                     HeaderImage = imageConverter.ConvertImageToByteArray(pathBase + HeaderImageArticle1),
                     HeaderImageFileName = HeaderImageArticle1,
                     Category = context.ArticleCategories.Where(c => c.Id == 5).FirstOrDefault(),
-                    Author = context.Users.Where(u => u.UserName == "admin").FirstOrDefault()
+                    Author = context.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault()
                 };
 
                 context.Articles.Add(sampleArticle12);

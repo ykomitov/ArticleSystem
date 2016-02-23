@@ -1,6 +1,7 @@
 ﻿namespace ArticleSystem.Web.Controllers
 {
     using System.Web.Mvc;
+    using Common;
     using Services.Data.Contracts;
 
     public class HomeController : BaseController
@@ -16,8 +17,14 @@
 
         public ActionResult Index()
         {
-            this.ViewBag.Title = "Welcome to our technology blog!";
-            this.ViewBag.Subtitle = "Enjoy the latest news about technology, gadgets, science and software";
+            this.ViewBag.Title = GlobalConstants.HomePageTitle;
+            this.ViewBag.Subtitle = GlobalConstants.HomePageSubtitle;
+
+            // select 4 latest articles from db
+            // add them to the slider
+
+            // select 6 more articles (top rating) from db
+            // add them to the info
 
             return this.View();
         }

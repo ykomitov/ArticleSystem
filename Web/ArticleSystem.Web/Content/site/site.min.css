@@ -491,8 +491,7 @@ h3 {
 #main.inner-page {
     position: relative;
     width: 585px;
-    height: 890px;
-    padding-top: 35px;
+    padding: 35px 0 50px 0;
     border-right: 1px solid #f0f0f0;
 }
 
@@ -969,6 +968,10 @@ footer {
     #comment-text {
         width: 346px;
     }
+
+    #main.inner-page .post-preview h1 {
+        font-size: 25px;
+    }
 }
 
 @media only screen and (max-width:840px) {
@@ -1059,11 +1062,19 @@ footer {
             width: 310px;
             right: 10px;
         }
+
+    #main.inner-page .post-preview h1 {
+        font-size: 24px;
+    }
 }
 
 @media only screen and (max-width:690px) {
     #wrap nav a, #wrap nav.inner-page a {
         text-transform: uppercase;
+    }
+
+    #page-heading {
+        height: 100px;
     }
 
     #main-content, #wrap {
@@ -1105,7 +1116,7 @@ footer {
 
     #main.inner-page {
         border: none;
-        padding: 0;
+        padding: 15px 0 50px 0;
     }
 
     #page-heading {
@@ -1114,15 +1125,19 @@ footer {
         margin: 15px auto;
     }
 
-        #page-heading h1 {
-            margin-top: 10px;
-        }
+    #main.inner-page .post-preview h1 {
+        font-size: 22px;
+    }
 
-        #page-heading.inner-page {
-            width: 100%;
-            margin-top: 25px;
-            padding: 0;
-        }
+    #page-heading h1 {
+        margin-top: 10px;
+    }
+
+    #page-heading.inner-page {
+        width: 100%;
+        margin-top: 25px;
+        padding: 0;
+    }
 
     #info-container {
         margin-top: 10px;

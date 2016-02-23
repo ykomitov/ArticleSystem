@@ -6,6 +6,9 @@
         public const string PowerUserRoleName = "PowerUser ";
         public const string NormalUserRoleName = "User ";
 
+        public const string HomePageTitle = "Welcome to our technology blog!";
+        public const string HomePageSubtitle = "Enjoy the latest news about technology, gadgets, science and software";
+
         public const string NewsPageTitle = "Latest news";
         public const string NewsPageSubtitle = "Enjoy our selection of breaking news from the world of coputing";
 
