@@ -1,6 +1,5 @@
 ﻿namespace ArticleSystem.Services.Data
 {
-    using System;
     using System.Linq;
     using ArticleSystem.Data.Common;
     using ArticleSystem.Data.Models;

@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Web.Caching;
     using System.Web.Mvc;
     using Common;
     using Infrastructure.Mapping;
@@ -24,7 +23,7 @@
             this.categories = categories;
         }
 
-        public ActionResult News(int page = 1)
+        public ActionResult News([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.NewsPageTitle;
             this.ViewBag.Subtitle = GlobalConstants.NewsPageSubtitle;
@@ -34,7 +33,7 @@
             return this.View(viewModel);
         }
 
-        public ActionResult Tech(int page = 1)
+        public ActionResult Tech([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.TechPageTitle;
             this.ViewBag.Subtitle = GlobalConstants.TechPageSubtitle;
@@ -44,7 +43,7 @@
             return this.View(viewModel);
         }
 
-        public ActionResult Devices(int page = 1)
+        public ActionResult Devices([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.DevicesPageTitle;
             this.ViewBag.Subtitle = GlobalConstants.DevicesPageSubtitle;
@@ -54,7 +53,7 @@
             return this.View(viewModel);
         }
 
-        public ActionResult Soft(int page = 1)
+        public ActionResult Soft([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.SoftwarePageTitle;
             this.ViewBag.Subtitle = GlobalConstants.SoftwarePageSubtitle;
@@ -64,7 +63,7 @@
             return this.View(viewModel);
         }
 
-        public ActionResult Science(int page = 1)
+        public ActionResult Science([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.SciencePageTitle;
             this.ViewBag.Subtitle = GlobalConstants.SciencePageSubtitle;
@@ -95,11 +94,12 @@
         {
             PagedArticlesViewModel viewModel;
             var categoryId = this.categories.GetCategoryId(category);
-            var allArticlesCount = this.articles.GetAll().Where(a => a.Category.Id == 1).Count();
+            var allArticlesCount = this.articles.GetAll().Where(a => a.Category.Name == category).Count();
             var totalPages = (int)Math.Ceiling(allArticlesCount / (decimal)pageSize);
+            var cacheKey = category + "_page_" + page;
 
             var articlesOnPage = this.Cache.Get(
-                category + "_page_" + page,
+                cacheKey,
                 () => this.articles
                   .GetPagedArticles(categoryId, page, pageSize)
                   .To<ArticleDetailsViewModel>()
@@ -110,7 +110,8 @@
             {
                 CurrentPage = page,
                 TotalPages = totalPages,
-                Articles = articlesOnPage
+                Articles = articlesOnPage,
+                CategoryName = category
             };
 
             return viewModel;

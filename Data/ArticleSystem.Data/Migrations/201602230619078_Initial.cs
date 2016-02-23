@@ -1,6 +1,5 @@
 namespace ArticleSystem.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class Initial : DbMigration
@@ -26,12 +25,12 @@ namespace ArticleSystem.Data.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false),
+                        Title = c.String(nullable: false, maxLength: 87),
                         TextHtml = c.String(nullable: false),
                         HeaderImage = c.Binary(),
-                        HeaderImageFileName = c.String(),
+                        HeaderImageFileName = c.String(maxLength: 100),
                         SliderImage = c.Binary(),
-                        SliderImageFileName = c.String(),
+                        SliderImageFileName = c.String(maxLength: 100),
                         AuthorId = c.String(nullable: false, maxLength: 128),
                         CategoryId = c.Int(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),

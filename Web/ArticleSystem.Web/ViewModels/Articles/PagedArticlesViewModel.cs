@@ -8,6 +8,8 @@
 
         public int TotalPages { get; set; }
 
+        public string CategoryName { get; set; }
+
         public IEnumerable<ArticleDetailsViewModel> Articles { get; set; }
     }
 }

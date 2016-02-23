@@ -58,11 +58,11 @@
                     {
                         if (i == Model.CurrentPage)
                         {
-                            <a href="~/Articles/News/@i" class="btn post-link current">@i</a>
+                            <a href="~/Articles/@Model.CategoryName/@i" class="btn post-link current">@i</a>
                         }
                         else
                         {
-                            <a href="~/Articles/News/@i" class="btn post-link">@i</a>
+                            <a href="~/Articles/@Model.CategoryName/@i" class="btn post-link">@i</a>
                         }
                     }
                 }

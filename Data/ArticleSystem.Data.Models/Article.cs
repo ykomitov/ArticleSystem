@@ -13,6 +13,7 @@
         }
 
         [Required]
+        [MaxLength(87)]
         public string Title { get; set; }
 
         [Required]
@@ -20,10 +21,12 @@
 
         public byte[] HeaderImage { get; set; }
 
+        [MaxLength(100)]
         public string HeaderImageFileName { get; set; }
 
         public byte[] SliderImage { get; set; }
 
+        [MaxLength(100)]
         public string SliderImageFileName { get; set; }
 
         public string AuthorId { get; set; }
