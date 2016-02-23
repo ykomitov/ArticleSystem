@@ -36,7 +36,7 @@
                 <div class="post-img-container">
                     <img src="@ImageFromDb.Image(article.HeaderImage, "header")" />
                 </div>
-                <div class="post-text">@Html.Raw(article.TextHtml)</div>
+                <div class="post-text">@Html.Raw(TextShortener.ShortenHtml(article.TextHtml, 420))</div>
                 <a href="~/Articles/Details/@article.Id" class="btn post-link">Read More</a>
             </div>
         }
