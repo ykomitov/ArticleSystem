@@ -9,6 +9,7 @@
 
     public class HomeController : BaseController
     {
+        private const int NumberOfTopArticles = 6;
         private readonly IArticlesService articles;
         private readonly ICategoriesService categories;
 
@@ -18,6 +19,7 @@
             this.categories = categories;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             this.ViewBag.Title = GlobalConstants.HomePageTitle;
@@ -31,7 +33,7 @@
             this.ViewBag.Articles = sliderArticles;
 
             var viewModel = this.articles
-                .GetMainContentArticles()
+                .GetTopArticlesByVote(NumberOfTopArticles)
                 .To<IndexTopRatedArticlesViewModel>()
                 .ToList();
 

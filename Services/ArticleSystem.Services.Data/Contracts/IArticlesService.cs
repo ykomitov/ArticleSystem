@@ -14,6 +14,8 @@
 
         IQueryable<Article> GetSliderArticles();
 
-        IQueryable<Article> GetMainContentArticles();
+        IQueryable<Article> GetTopArticlesByVote(int numberOfArticles);
+
+        IQueryable<Article> GetLatestArticles(int numberOfArticles);
     }
 }

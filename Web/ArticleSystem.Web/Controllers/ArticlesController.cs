@@ -11,6 +11,7 @@
     public class ArticlesController : BaseController
     {
         private const int ItemsPerPage = 2;
+        private const int NumberOfArticlesInAsideList = 6;
 
         private readonly IArticlesService articles;
         private readonly ICommentsService comments;
@@ -23,6 +24,7 @@
             this.categories = categories;
         }
 
+        [HttpGet]
         public ActionResult News([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.NewsPageTitle;
@@ -33,6 +35,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Tech([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.TechPageTitle;
@@ -43,6 +46,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Devices([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.DevicesPageTitle;
@@ -53,6 +57,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Soft([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.SoftwarePageTitle;
@@ -63,6 +68,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Science([Bind(Prefix = "id")]int page = 1)
         {
             this.ViewBag.Title = GlobalConstants.SciencePageTitle;
@@ -73,6 +79,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Details(int id)
         {
             var article = this.articles
@@ -86,6 +93,8 @@
                 .ToList();
 
             article.Comments = comments;
+
+            this.GetAsideArticles();
 
             return this.View(article);
         }
@@ -114,7 +123,36 @@
                 CategoryName = category
             };
 
+            this.GetAsideArticles();
+
             return viewModel;
+        }
+
+        private void GetAsideArticles()
+        {
+            var latestArticles = this.Cache.Get(
+                "latestArticles",
+               () => this.articles
+                .GetLatestArticles(NumberOfArticlesInAsideList)
+                .To<ListedArticlesViewModel>()
+                .ToList(),
+               30 * 60);
+
+            var topRatedArticles = this.Cache.Get(
+                "topRatedArticles",
+                () => this.articles
+                .GetTopArticlesByVote(NumberOfArticlesInAsideList)
+                .To<ListedArticlesViewModel>()
+                .ToList(),
+                30 * 60);
+
+            AsideArticlesViewModel asideArticles = new AsideArticlesViewModel
+            {
+                HotArticles = latestArticles,
+                ArchiveArticles = topRatedArticles
+            };
+
+            this.ViewBag.AsideArticles = asideArticles;
         }
     }
 }

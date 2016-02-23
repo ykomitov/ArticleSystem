@@ -1,0 +1,27 @@
+﻿@using ArticleSystem.Web.Helpers
+@using ArticleSystem.Web.ViewModels.Articles
+
+@{
+    var articleCollection = (AsideArticlesViewModel)ViewBag.AsideArticles;
+}
+
+<aside class="inner-page">
+    <div id="aside-blog" class="aside-element">
+        <h3>Hot articles</h3>
+        <ul>
+            @foreach (var article in articleCollection.HotArticles)
+            {
+                <li><a href="~/Articles/Details/@article.Id">@article.Title</a></li>
+            }
+        </ul>
+    </div>
+    <div id="aside-archives" class="aside-element">
+        <h3>From the archives</h3>
+        <ul>
+            @foreach (var article in articleCollection.ArchiveArticles)
+            {
+                <li><a href="~/Articles/Details/@article.Id">@article.Title</a></li>
+            }
+        </ul>
+    </div>
+</aside>

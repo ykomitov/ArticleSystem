@@ -45,12 +45,20 @@
                 .Take(4);
         }
 
-        public IQueryable<Article> GetMainContentArticles()
+        public IQueryable<Article> GetTopArticlesByVote(int numberOfArticles)
         {
             return this.articles
                 .All()
                 .OrderBy(a => a.Votes.Sum(v => (int)v.VoteType))
-                .Take(6);
+                .Take(numberOfArticles);
+        }
+
+        public IQueryable<Article> GetLatestArticles(int numberOfArticles)
+        {
+            return this.articles
+                .All()
+                .OrderBy(a => a.CreatedOn)
+                .Take(numberOfArticles);
         }
     }
 }

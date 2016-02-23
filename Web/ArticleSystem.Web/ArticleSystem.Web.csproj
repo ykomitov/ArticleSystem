@@ -220,8 +220,10 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Articles\ArticleDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Articles\AsideArticlesViewModel.cs" />
     <Compile Include="ViewModels\Articles\CommentDetailsViewModel.cs" />
     <Compile Include="ViewModels\Articles\CommentReplyViewModel.cs" />
+    <Compile Include="ViewModels\Articles\ListedArticlesViewModel.cs" />
     <Compile Include="ViewModels\Articles\PagedArticlesViewModel.cs" />
     <Compile Include="ViewModels\Home\FooterArticlesViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexSliderArticlesViewModel.cs" />
@@ -352,11 +354,13 @@
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Articles\_PostInfo.cshtml" />
     <Content Include="Views\Articles\_PagedArticles.cshtml" />
+    <Content Include="Views\Articles\_AsideElement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Filters\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

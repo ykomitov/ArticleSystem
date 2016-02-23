@@ -2,6 +2,10 @@ body {
     background-image: url("/images/bg-texture.jpg");
 }
 
+#form-button-btst {
+    padding-bottom: 20px;
+}
+
 #login {
     position: absolute;
     right: 3px;
@@ -199,6 +203,7 @@ body {
 
 #page-heading.inner-page h1, #page-heading.inner-page h3, h1, h3 {
     text-transform: capitalize;
+    padding: 0 10px;
 }
 
 #main.inner-page .post-preview h1, h3 {
@@ -575,7 +580,8 @@ aside.inner-page {
 }
 
     aside.inner-page .aside-element {
-        padding: 0 0 30px 50px;
+        padding: 0 0 55px 50px;
+        border-left: 1px solid #f0f0f0;
     }
 
         aside.inner-page .aside-element a {

@@ -3,30 +3,7 @@
 @model ArticleSystem.Web.ViewModels.Articles.PagedArticlesViewModel
 
 <div id="main-content" class="inner-page self-clear">
-    <aside class="inner-page">
-        <div id="aside-blog" class="aside-element">
-            <h3>From the blog</h3>
-            <ul>
-                <li><a href="#">Curabitur blandit rutrum felis pretium</a></li>
-                <li><a href="#">Pharetra donec dictum felis eu quis</a></li>
-                <li><a href="#">Eros pretium vulputate dictum donec</a></li>
-                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
-                <li><a href="#">Suspendisse potenti integer donec</a></li>
-                <li><a href="#">Accumsan nunc sollicitudin id pelle</a></li>
-            </ul>
-        </div>
-        <div id="aside-archives" class="aside-element">
-            <h3>Archives</h3>
-            <ul>
-                <li><a href="#">Curabitur blandit rutrum</a></li>
-                <li><a href="#">Pharetra donec dictum felis eu</a></li>
-                <li><a href="#">Eros pretium vulputate</a></li>
-                <li><a href="#">Etiam quis nulla ac turpis moles</a></li>
-                <li><a href="#">Suspendisse potenti integer</a></li>
-                <li><a href="#">Accumsan nunc sollicitudin id</a></li>
-            </ul>
-        </div>
-    </aside>
+    @Html.Partial("_AsideElement")
     <div id="main" class="inner-page">
         @foreach (var article in Model.Articles)
             {

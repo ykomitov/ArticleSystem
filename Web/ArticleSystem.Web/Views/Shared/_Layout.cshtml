@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Tech Blog - @ViewBag.Title</title>
+
     @Styles.Render("~/Content/site/sitecss")
+
     <link href='https://fonts.googleapis.com/css?family=Kreon:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -17,7 +19,19 @@
                     <a href="#"><img src="~/images/facebook.png" alt="Share on Facebook"></a>
                 </div>
                 <div id="login">
-                    <a href="~/Account/Login"><img src="~/images/login.png" alt="Login" style="width:20px" /></a>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a href="~/Account/Login"><img src="~/images/login.png" alt="Login" style="width:20px" /></a>
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()"><img src="~/images/logout.png" alt="Logout" style="width:20px" /></a>
+
+                        }
+                    }
                 </div>
                 <form id="search-box">
                     <input id="search-input" type="text" placeholder="Search this website...">
@@ -71,16 +85,22 @@
             {
                 @Html.Partial("_IndexSlider")
             }
-            <div id="page-heading" class="@(Request.AppRelativeCurrentExecutionFilePath != "~/" ? "inner-page" : "")">
-                <h1>@ViewBag.Title</h1>
-                <h3>@ViewBag.Subtitle</h3>
-            </div>
+            @if (Request.AppRelativeCurrentExecutionFilePath != "~/Account/Login" && Request.AppRelativeCurrentExecutionFilePath != "~/Account/Register")
+            {
+                <div id="page-heading" class="@(Request.AppRelativeCurrentExecutionFilePath != "~/" ? "inner-page" : "")">
+                    <h1>@ViewBag.Title</h1>
+                    <h3>@ViewBag.Subtitle</h3>
+                </div>
+            }
         </header>
         @RenderBody()
-        <footer>
-            <img src="~/images/logo-footer.png">
-            <p>Project designed for <i>Telerik Academy</i> | Powered by <i>ASP.NET MVC</i></p>
-        </footer>
+        @if (Request.AppRelativeCurrentExecutionFilePath != "~/Account/Login" && Request.AppRelativeCurrentExecutionFilePath != "~/Account/Register")
+        {
+            <footer>
+                <img src="~/images/logo-footer.png">
+                <p>Project designed for <i>Telerik Academy</i> | Powered by <i>ASP.NET MVC</i></p>
+            </footer>
+        }
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/sitescripts")
