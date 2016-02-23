@@ -697,7 +697,7 @@ aside.inner-page {
     }
 
 footer {
-    height: 285px;
+    height: 40px;
     padding: 35px 50px 0;
     background-color: #f9f9f9;
     border-top: 1px solid #ececec;
@@ -711,7 +711,7 @@ footer {
 
     footer .footer-element {
         float: left;
-        width: 190px;
+        width: 410px;
         margin-right: 33px;
     }
 
@@ -734,7 +734,9 @@ footer {
     }
 
     footer img {
-        margin-bottom: 5px;
+        bottom: 20px;
+        left: 50px;
+        position: absolute;
     }
 
     footer > p {
@@ -1044,16 +1046,6 @@ footer {
         width: 100%;
     }
 
-    footer {
-        height: 100%;
-        padding: 10px 25px 0;
-        margin-bottom: 10px;
-    }
-
-        footer > p {
-            margin: 0 50px 18px 0;
-        }
-
     #info-container .list .item {
         margin: 0 15px 20px 0;
     }
@@ -1084,6 +1076,19 @@ footer {
     #wrap nav a, #wrap nav.inner-page a {
         text-transform: uppercase;
     }
+
+    footer {
+        height: 100%;
+        margin: 0 0 20px 0;
+    }
+
+        footer > p {
+            margin: 0 50px 18px 0;
+        }
+
+        footer img {
+            display: none;
+        }
 
     #page-heading {
         height: 100px;
@@ -1172,7 +1177,7 @@ footer {
             }
 
     footer {
-        margin: 0;
+        margin: 0 0 20px 0;
         padding: 10px;
     }
 

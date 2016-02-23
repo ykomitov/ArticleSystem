@@ -223,6 +223,7 @@
     <Compile Include="ViewModels\Articles\CommentDetailsViewModel.cs" />
     <Compile Include="ViewModels\Articles\CommentReplyViewModel.cs" />
     <Compile Include="ViewModels\Articles\PagedArticlesViewModel.cs" />
+    <Compile Include="ViewModels\Home\FooterArticlesViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexSliderArticlesViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexTopRatedArticlesViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
