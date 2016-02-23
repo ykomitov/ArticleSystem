@@ -10,6 +10,8 @@
     public class HomeController : BaseController
     {
         private const int NumberOfTopArticles = 6;
+        private const int SecondsToCacheIndexPage = 15 * 60;
+
         private readonly IArticlesService articles;
         private readonly ICategoriesService categories;
 
@@ -25,17 +27,23 @@
             this.ViewBag.Title = GlobalConstants.HomePageTitle;
             this.ViewBag.Subtitle = GlobalConstants.HomePageSubtitle;
 
-            var sliderArticles = this.articles
+            var sliderArticles = this.Cache.Get(
+                "indexPageSliderArticles",
+                () => this.articles
                 .GetSliderArticles()
                 .To<IndexSliderArticlesViewModel>()
-                .ToList();
+                .ToList(),
+                SecondsToCacheIndexPage);
 
             this.ViewBag.Articles = sliderArticles;
 
-            var viewModel = this.articles
+            var viewModel = this.Cache.Get(
+                "indexPageViewModel",
+                () => this.articles
                 .GetTopArticlesByVote(NumberOfTopArticles)
                 .To<IndexTopRatedArticlesViewModel>()
-                .ToList();
+                .ToList(),
+                SecondsToCacheIndexPage);
 
             return this.View(viewModel);
         }
