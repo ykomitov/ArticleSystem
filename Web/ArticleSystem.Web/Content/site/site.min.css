@@ -1083,6 +1083,10 @@ footer {
         text-transform: uppercase;
     }
 
+    #loginForm {
+        padding: 0 40px !important;
+    }
+
     footer {
         height: 100%;
         margin: 0 0 20px 0;
