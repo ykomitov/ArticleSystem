@@ -24,9 +24,15 @@ All users can search in the articles in the application
 * Shows articles from each category, with server side paging. Two articles per page, with sample text and link to articles. Registered users can vote for the articles
 * In the aside element there are the "hot" articles section - showing the top 6 recent articles and the "From the archives" section, showing the 6 best rated articles
 
+![alt tag](/screenshots/screen2.jpeg)
+
 ##Article details page
 * Shows the whole article & its comments. Registered users can add comments here.
 * In the aside element there are the "hot" articles section - showing the top 6 recent articles and the "From the archives" section, showing the 6 best rated articles
 
+![alt tag](/screenshots/screen3.jpeg)
+
 ##Search results page
 * Shows the result of the entered search
+
+![alt tag](/screenshots/screen4.jpeg)
