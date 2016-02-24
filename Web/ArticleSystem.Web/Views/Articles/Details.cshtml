@@ -31,13 +31,13 @@
                                 <span class="user-name">@comment.Author</span>
                                 <span class="comment-date">@comment.CreatedOn</span>
                                 <p class="comment-text">@comment.CommentText</p>
-                                <a href="/post.html" class="btn post-link">Reply</a>
+                                @*<a href="/post.html" class="btn post-link">Reply</a>*@
                             </div>
                         </div>
 
                         foreach (var reply in comment.Comments)
                         {
-                            <div class="comment reply">
+                            <div class="comment">
                                 <div class="comment-avatar">
                                     <img src="@ImageFromDb.Image(reply.AuthorAvatar, "comment")">
                                 </div>
@@ -52,12 +52,14 @@
                 }
             </div>
         </div>
-        <form id="comment-form">
-            <h1>Leave a comment</h1>
-            <input id="comment-name" type="text" placeholder="Name">
-            <input id="comment-email" type="email" placeholder="Email">
-            <textarea id="comment-text" placeholder="Message"></textarea>
-            <input type="submit" value="Post" class="btn post-link">
-        </form>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.Partial("_CommentsForm")
+            @*<form id="comment-form">
+                <h1>Leave a comment</h1>
+                <textarea id="comment-text" placeholder="Message"></textarea>
+                <input type="submit" value="Post" class="btn post-link">
+            </form>*@
+        }
     </div>
 </div>

@@ -818,6 +818,7 @@ footer {
         display: table-cell;
         vertical-align: top;
         padding-top: 16px;
+        width: 440px;
     }
 
         #comments-container .comment-body p {

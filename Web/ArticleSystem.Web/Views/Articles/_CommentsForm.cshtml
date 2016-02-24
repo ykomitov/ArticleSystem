@@ -1,0 +1,10 @@
+﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
+
+@using (@Html.BeginForm("Post", "Comments", FormMethod.Post, new { @id = "comment-form", role = "search" }))
+{
+    @Html.AntiForgeryToken()
+    <h1>Leave a comment</h1>
+    @Html.TextArea("textInput", null, new { @placeholder = "Your message...", @id = "comment-text", required = "required" })
+    @Html.Hidden("articleId", Model.Id)
+    <input type="submit" value="Post" class="btn post-link">
+}

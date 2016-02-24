@@ -14,6 +14,12 @@
             this.comments = comments;
         }
 
+        public void AddComment(Comment newComment)
+        {
+            this.comments.Add(newComment);
+            this.comments.Save();
+        }
+
         public IQueryable<Comment> GetAll()
         {
             return this.comments.All();

@@ -20,13 +20,17 @@
         [ValidateAntiForgeryToken]
         public ActionResult SearchResult(string searchInput)
         {
-            this.ViewBag.Title = GlobalConstants.SearchPageTitle;
-            this.ViewBag.Subtitle = GlobalConstants.SearchPageSubtitle + searchInput + "\" returned";
-
             var foundArticles = this.articles
                 .SearchInTitleAndText(searchInput)
                 .To<FoundArticlesViewModel>()
                 .ToList();
+
+            var numberOfResults = foundArticles.Count;
+            var endWord = string.Format("{0}", foundArticles.Count > 1 ? " results" : " result");
+            var subtitle = GlobalConstants.SearchPageSubtitle + searchInput + "\" returned " + numberOfResults + endWord;
+
+            this.ViewBag.Title = GlobalConstants.SearchPageTitle;
+            this.ViewBag.Subtitle = subtitle;
 
             return this.View(foundArticles);
         }

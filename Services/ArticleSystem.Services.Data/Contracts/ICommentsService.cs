@@ -10,5 +10,7 @@
         IQueryable<Comment> GetArticleComments(int articleId);
 
         Comment GetById(int id);
+
+        void AddComment(Comment newComment);
     }
 }
