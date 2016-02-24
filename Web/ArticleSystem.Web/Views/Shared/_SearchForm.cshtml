@@ -1,0 +1,6 @@
+﻿@using (@Html.BeginForm("SearchResult", "Search", FormMethod.Post, new { @id = "search-box", role = "search" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBox("searchInput",null, new { @placeholder = "Search this website...", @id = "search-input" })
+    <input id="search-submit" type="image" src="~/images/search.png" alt="Submit">
+}

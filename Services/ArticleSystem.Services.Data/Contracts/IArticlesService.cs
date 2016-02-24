@@ -17,5 +17,7 @@
         IQueryable<Article> GetTopArticlesByVote(int numberOfArticles);
 
         IQueryable<Article> GetLatestArticles(int numberOfArticles);
+
+        IQueryable<Article> SearchInTitleAndText(string search);
     }
 }

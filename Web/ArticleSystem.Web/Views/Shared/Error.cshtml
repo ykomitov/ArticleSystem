@@ -4,5 +4,11 @@
     ViewBag.Title = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+@Styles.Render("~/Content/bootstrap.css")
+
+<div id="main-content">
+    <h1 class="text-danger">Oops!</h1>
+    <h2 class="text-danger">Something bad happened!</h2>
+    <h4>@Model.Exception.Message</h4>
+    <h1>&nbsp;</h1>
+</div>

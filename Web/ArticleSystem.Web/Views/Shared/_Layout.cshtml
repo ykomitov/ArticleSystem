@@ -33,10 +33,13 @@
                         }
                     }
                 </div>
-                <form id="search-box">
-                    <input id="search-input" type="text" placeholder="Search this website...">
+                @Html.Partial("_SearchForm")
+                @*@using (@Html.BeginForm("SearchResult", "Search", FormMethod.Post, new { @id = "search-box" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.TextBox("searchedText", null, new { @placeholder = "Search this website...", @id = "search-input" })
                     <input id="search-submit" type="image" src="~/images/search.png" alt="Submit">
-                </form>
+                }*@
                 <div id="logo">
                     <img src="~/images/logo.png">
                     <span id="slogan">Your slogan goes here</span>
@@ -94,7 +97,7 @@
             }
         </header>
         @RenderBody()
-        @if (Request.AppRelativeCurrentExecutionFilePath != "~/Account/Login" && Request.AppRelativeCurrentExecutionFilePath != "~/Account/Register")
+        @if (Request.AppRelativeCurrentExecutionFilePath != "~/Account/Login" && Request.AppRelativeCurrentExecutionFilePath != "~/Error" && Request.AppRelativeCurrentExecutionFilePath != "~/Account/Register")
         {
             <footer>
                 <img src="~/images/logo-footer.png">

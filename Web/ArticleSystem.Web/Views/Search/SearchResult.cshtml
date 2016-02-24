@@ -1,0 +1,10 @@
+﻿@model List<ArticleSystem.Web.ViewModels.Search.FoundArticlesViewModel>
+
+<div id="main-content">
+    <ul class="search-results-container">
+        @foreach (var article in Model)
+        {
+            <li class="search-results"><h4><a href="~/Articles/Details/@article.Id">@article.Title</a></h4></li>
+        }
+    </ul>
+</div>

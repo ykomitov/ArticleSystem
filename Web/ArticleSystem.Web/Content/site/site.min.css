@@ -10,6 +10,24 @@ span[data-action="up"], span[data-action="down"] {
     padding-bottom: 20px;
 }
 
+.search-results-container {
+    margin: 50px 0;
+}
+
+.search-results a {
+    margin: 10px 0;
+    text-transform: none;
+    color: #929292;
+    text-decoration: none;
+}
+
+h4 {
+    color: #929292;
+    font-family: Kreon, serif;
+    font-weight: 300;
+    font-size: 22px;
+}
+
 #login {
     position: absolute;
     right: 3px;
@@ -1480,6 +1498,10 @@ footer {
 @media only screen and (max-width:690px) {
     #wrap nav a, #wrap nav.inner-page a {
         text-transform: uppercase;
+    }
+
+    .search-results-container {
+        padding: 0 40px;
     }
 
     #loginForm {

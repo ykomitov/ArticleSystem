@@ -1,6 +1,5 @@
 ﻿namespace ArticleSystem.Services.Data
 {
-    using System;
     using System.Linq;
     using ArticleSystem.Data.Common;
     using ArticleSystem.Data.Models;
@@ -59,6 +58,15 @@
                 .All()
                 .OrderByDescending(a => a.CreatedOn)
                 .Take(numberOfArticles);
+        }
+
+        public IQueryable<Article> SearchInTitleAndText(string search)
+        {
+            return this.articles
+                .All()
+                .Where(
+                a => a.Title.IndexOf(search) >= 0 ||
+                a.TextHtml.IndexOf(search) >= 0);
         }
     }
 }

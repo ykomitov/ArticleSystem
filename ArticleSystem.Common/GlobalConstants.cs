@@ -23,5 +23,10 @@
 
         public const string SciencePageTitle = "Science";
         public const string SciencePageSubtitle = "Catch up on the developments in science...";
+
+        public const string SearchPageTitle = "Search results";
+        public const string SearchPageSubtitle = "Your search \"";
+
+        public const string GlobalErrorMessage = "Error";
     }
 }
