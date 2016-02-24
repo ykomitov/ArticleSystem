@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using ArticleSystem.Common
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,15 +36,17 @@
                     }
                 </div>
                 @Html.Partial("_SearchForm")
-                @*@using (@Html.BeginForm("SearchResult", "Search", FormMethod.Post, new { @id = "search-box" }))
+                @if (ViewContext.HttpContext.User.IsInRole(GlobalConstants.AdministratorRoleName))
                 {
-                    @Html.AntiForgeryToken()
-                    @Html.TextBox("searchedText", null, new { @placeholder = "Search this website...", @id = "search-input" })
-                    <input id="search-submit" type="image" src="~/images/search.png" alt="Submit">
-                }*@
+                    <span>@Html.ActionLink("Admin panel", "Index", "Articles", new { area = "Administration" }, null)</span>
+                }
+                @if (ViewContext.HttpContext.User.IsInRole(GlobalConstants.PowerUserRoleName))
+                {
+                    <span><a href="~/Moderation">Moderator Panel</a></span>
+                }
                 <div id="logo">
-                    <img src="~/images/logo.png">
-                    <span id="slogan">Your slogan goes here</span>
+                    <a href="~/"><img src="~/images/logo.png"></a>
+                    <span id="slogan">Technology up to date</span>
                 </div>
                 <nav id="nav">
                     <ul>

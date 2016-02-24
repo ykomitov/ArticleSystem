@@ -17,12 +17,18 @@
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             bundles.Add(new ScriptBundle("~/bundles/sitescripts").Include("~/Scripts/site/slick.min.js", "~/Scripts/site/slick-init.js", "~/Scripts/site/slider-yzk.js", "~/Scripts/site/voting.js"));
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+               "~/Scripts/KendoUI/kendo.all.min.js",
+               "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"));
             bundles.Add(new StyleBundle("~/Content/site/sitecss").Include("~/Content/site/site.min.css"));
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+               "~/Content/KendoUI/kendo.common.min.css",
+               "~/Content/KendoUI/kendo.default.min.css"));
         }
     }
 }
