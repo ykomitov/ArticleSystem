@@ -7,6 +7,9 @@
     <title>Tech Blog - @ViewBag.Title</title>
 
     @Styles.Render("~/Content/site/sitecss")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
+    @Styles.Render("~/Content/kendo")
 
     <link href='https://fonts.googleapis.com/css?family=Kreon:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -42,7 +45,7 @@
                 }
                 @if (ViewContext.HttpContext.User.IsInRole(GlobalConstants.PowerUserRoleName))
                 {
-                    <span>@Html.ActionLink("Moderator panel", "Index", "Articles", new { area = "Moderation" }, null)</span>
+                    <span><a href="~/Moderation">Moderator Panel</a></span>
                 }
                 <div id="logo">
                     <a href="~/"><img src="~/images/logo.png"></a>
@@ -88,28 +91,9 @@
                     }
                 </ul>
             </div>
-            @if (Request.AppRelativeCurrentExecutionFilePath == "~/")
-            {
-                @Html.Partial("_IndexSlider")
-            }
-            @if (Request.AppRelativeCurrentExecutionFilePath != "~/Account/Login" && Request.AppRelativeCurrentExecutionFilePath != "~/Account/Register")
-            {
-                <div id="page-heading" class="@(Request.AppRelativeCurrentExecutionFilePath != "~/" ? "inner-page" : "")">
-                    <h1>@ViewBag.Title</h1>
-                    <h3>@ViewBag.Subtitle</h3>
-                </div>
-            }
         </header>
         @RenderBody()
-        @if (Request.AppRelativeCurrentExecutionFilePath != "~/Account/Login" && Request.AppRelativeCurrentExecutionFilePath != "~/Error" && Request.AppRelativeCurrentExecutionFilePath != "~/Account/Register")
-        {
-            <footer>
-                <img src="~/images/logo-footer.png">
-                <p>Project designed for <i>Telerik Academy</i> | Powered by <i>ASP.NET MVC</i></p>
-            </footer>
-        }
     </div>
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/sitescripts")
     @RenderSection("scripts", required: false)
 </body>

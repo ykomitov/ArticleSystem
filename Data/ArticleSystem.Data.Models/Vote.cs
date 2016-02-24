@@ -5,7 +5,6 @@
 
     public class Vote : BaseModel<int>
     {
-        [Required]
         public VoteType VoteType { get; set; }
 
         public int ArticleId { get; set; }

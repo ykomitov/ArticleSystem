@@ -1,0 +1,14 @@
+﻿@model ArticleSystem.Web.Areas.Administration.Models.ArticleViewModel
+
+@Html.ValidationSummary("", new { @class = "text-danger" })
+<div class="form-group">
+    @Html.HiddenFor(a => a.Id)
+    @Html.LabelFor(a => a.Title, new { @class = "col-md-offset-2 col-md-4 control-label" })
+    <div class="col-md-10 col-md-offset-1">
+        @Html.TextAreaFor(a => a.Title, new { @class = "form-control col-md-4", @cols = "40" })
+    </div>
+    @Html.LabelFor(a => a.IsDeleted, new { @class = "col-md-offset-2 col-md-4 control-label" })
+    <div class="col-md-10 col-md-offset-1">
+        @Html.CheckBoxFor(a => a.IsDeleted, new { @class = "form-control col-md-4"})
+    </div>
+</div>

@@ -1,5 +1,6 @@
 ﻿namespace ArticleSystem.Services.Data
 {
+    using System;
     using System.Linq;
     using ArticleSystem.Data.Common;
     using ArticleSystem.Data.Models;
@@ -67,6 +68,23 @@
                 .Where(
                 a => a.Title.IndexOf(search) >= 0 ||
                 a.TextHtml.IndexOf(search) >= 0);
+        }
+
+        public void SaveShanges()
+        {
+            this.articles.Save();
+        }
+
+        public void DeleteById(int id)
+        {
+            var articleToDelete = this.articles.GetById(id);
+            this.articles.Delete(articleToDelete);
+            this.articles.Save();
+        }
+
+        public IQueryable<Article> GetWithDeleted()
+        {
+            return this.articles.AllWithDeleted();
         }
     }
 }

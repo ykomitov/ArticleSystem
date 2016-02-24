@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using ArticleSystem.Common;
     using Common.Models;
 
     public class Article : BaseModel<int>
@@ -12,11 +13,9 @@
             this.Votes = new HashSet<Vote>();
         }
 
-        [Required]
-        [MaxLength(87)]
+        [MaxLength(GlobalConstants.ArticleTitleMaxLength)]
         public string Title { get; set; }
 
-        [Required]
         public string TextHtml { get; set; }
 
         public byte[] HeaderImage { get; set; }
@@ -36,12 +35,10 @@
 
         public string AuthorId { get; set; }
 
-        [Required]
         public virtual ApplicationUser Author { get; set; }
 
         public virtual int CategoryId { get; set; }
 
-        [Required]
         public virtual ArticleCategory Category { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }

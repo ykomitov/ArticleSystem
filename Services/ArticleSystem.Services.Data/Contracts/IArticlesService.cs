@@ -19,5 +19,11 @@
         IQueryable<Article> GetLatestArticles(int numberOfArticles);
 
         IQueryable<Article> SearchInTitleAndText(string search);
+
+        void SaveShanges();
+
+        void DeleteById(int id);
+
+        IQueryable<Article> GetWithDeleted();
     }
 }

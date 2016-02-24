@@ -61,9 +61,9 @@
                 {
                     vote.VoteType = (VoteType)voteType;
                 }
-
-                this.votes.SaveChanges();
             }
+
+            this.votes.SaveChanges();
 
             var postVotes = this.votes
                 .GetAll()

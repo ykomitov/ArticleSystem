@@ -6,6 +6,10 @@ span[data-action="up"], span[data-action="down"] {
     cursor: pointer;
 }
 
+.k-grid{
+    height:600px;
+}
+
 #form-button-btst {
     padding-bottom: 20px;
 }

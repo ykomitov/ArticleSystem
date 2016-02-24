@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleSystem.Common", "Art
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleSystem.Tools.ImageConverter", "ArticleSystem.Tools.ImageConverter\ArticleSystem.Tools.ImageConverter.csproj", "{1E5A04F4-4B9B-4BB2-99A2-DDBD25CCF929}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A5D95294-82CC-4422-A80D-3052A7A361E6}"
+	ProjectSection(SolutionItems) = preProject
+		ExternalLibraries\Kendo.Mvc.dll = ExternalLibraries\Kendo.Mvc.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

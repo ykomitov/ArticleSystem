@@ -23,6 +23,11 @@
 
         public static string ShortenHtml(string originalText, int length)
         {
+            if (originalText == null)
+            {
+                return "";
+            }
+
             var textWithLineBreaks = Regex.Replace(originalText, "</p>", Environment.NewLine);
             var plainText = Regex.Replace(textWithLineBreaks, "<.*?>", string.Empty);
 

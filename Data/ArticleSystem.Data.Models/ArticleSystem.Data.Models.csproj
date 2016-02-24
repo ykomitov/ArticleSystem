@@ -73,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ArticleSystem.Common\ArticleSystem.Common.csproj">
+      <Project>{701f322f-aa01-4ddc-90b6-6935981c1e73}</Project>
+      <Name>ArticleSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ArticleSystem.Data.Common\ArticleSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>ArticleSystem.Data.Common</Name>

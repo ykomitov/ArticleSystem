@@ -1,0 +1,38 @@
+﻿@using Kendo.Mvc.UI
+@using ArticleSystem.Web.Areas.Administration.Models
+@{
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Admin panel";
+}
+
+@(Html.Kendo().Grid<ArticleViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Title).Width(500);
+          columns.Bound(c => c.CreatedOn).Format("{0:dd MMM yyyy}");
+          columns.Bound(c => c.IsDeleted);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Articles_Read", "Articles"))
+          .Create(create => create.Action("Articles_Create", "Articles"))
+          .Update(update => update.Action("Articles_Update", "Articles"))
+          .Destroy(destroy => destroy.Action("Articles_Destroy", "Articles"))
+      )
+)

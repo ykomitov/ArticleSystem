@@ -18,7 +18,6 @@
         public void Add(Vote newVote)
         {
             this.votes.Add(newVote);
-            this.votes.Save();
         }
 
         public IQueryable<Vote> GetAll()
