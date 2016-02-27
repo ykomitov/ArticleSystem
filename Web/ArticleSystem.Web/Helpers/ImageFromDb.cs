@@ -6,8 +6,8 @@
     {
         private const string DefaultHeaderImage = "/images/default-header-img.jpg";
         private const string DefaultCommentImage = "/images/avatar.jpg";
-        private const string DefaultSliderImage = "/images/chameleon-2.jpeg";
-        private const string DefaultIndexImage = "/images/img-sm-1.jpeg";
+        private const string DefaultSliderImage = "/images/default-slider.jpg";
+        private const string DefaultIndexImage = "/images/default-front-page.jpg";
 
         public static string Image(byte[] imageAsByteArr, string type)
         {
@@ -32,7 +32,7 @@
                 }
                 else if (type == "index")
                 {
-                    return DefaultSliderImage;
+                    return DefaultIndexImage;
                 }
                 else
                 {
