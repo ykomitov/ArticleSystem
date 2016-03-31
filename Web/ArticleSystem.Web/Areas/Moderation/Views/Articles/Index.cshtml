@@ -5,7 +5,9 @@
     ViewBag.Title = "Moderator panel";
 }
 
-@(Html.Kendo().Editor()
+<form method="post" action='@Url.Action("Submit")'>
+
+    @(Html.Kendo().Editor()
       .Name("editor")
       .HtmlAttributes(new { style = "height:440px" })
       .Resizable(resizable => resizable.Content(true).Toolbar(true))
@@ -18,4 +20,36 @@
           .Thumbnail("Thumbnail", "ImageBrowser")
       )
       .Value(@<text></text>)
-)
+    )
+
+    <div class="k-content">
+        @(Html.Kendo().DropDownList()
+          .Name("categorySelector")
+          .DataTextField("Text")
+          .DataValueField("Value")
+          .BindTo(this.ViewBag.CategoriesList)
+          .Value("1")
+        .HtmlAttributes(new { style = "width: 50%" })
+        )
+
+        <br />
+
+        @(Html.Kendo().Upload()
+            .Name("sliderImage")
+            .Messages(m => m.Select("Select slider image (960 x 330px)"))
+        )
+        @(Html.Kendo().Upload()
+            .Name("headerImage")
+            .Messages(m => m.Select("Select header image (232 x 117px)"))
+        )
+        @(Html.Kendo().Upload()
+            .Name("indexImage")
+            .Messages(m => m.Select("Select index image (185 x 185px)"))
+        )
+        <br />
+        <p style="padding-top: 1em; text-align: right">
+            <input type="submit" value="Submit" class="k-button k-primary" />
+        </p>
+        <br />
+    </div>
+</form>

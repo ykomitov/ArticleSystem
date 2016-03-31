@@ -8,6 +8,8 @@
     {
         IQueryable<ArticleCategory> GetAll();
 
+        IQueryable<ArticleCategory> GetCategorySortedById();
+
         int GetCategoryId(string categoryName);
     }
 }

@@ -20,6 +20,11 @@
             return this.categories.All().OrderBy(x => x.Name);
         }
 
+        public IQueryable<ArticleCategory> GetCategorySortedById()
+        {
+            return this.categories.All().OrderBy(x => x.Id);
+        }
+
         public int GetCategoryId(string categoryName)
         {
             return this.categories
