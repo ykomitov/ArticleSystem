@@ -15,8 +15,15 @@
 
             routes.MapRoute(
                 name: "Default",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Index" },
+                namespaces: new[] { "ArticleSystem.Web.Controllers" });
+
+            routes.MapRoute(
+                name: "WithIdParam",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                constraints: new { id = @"\d+" },
                 namespaces: new[] { "ArticleSystem.Web.Controllers" });
         }
     }

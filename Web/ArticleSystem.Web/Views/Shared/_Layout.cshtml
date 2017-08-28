@@ -77,13 +77,16 @@
                         <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
 
                         var url = Request.Url.AbsolutePath;
-                        var urlElements = url.Split('/');
-                        var pathBuilder = "";
+                        var urlElements = url.Split('/').Where(e => !string.IsNullOrWhiteSpace(e)).ToArray();
 
-                        for (int i = 1; i < urlElements.Length; i++)
+                        if (urlElements.Length == 2)
                         {
-                            pathBuilder = pathBuilder + urlElements[i] + "/";
-                            <li><a href="~/@pathBuilder">@urlElements[i]</a></li>
+                            <li><a href="~/@urlElements[0]/@urlElements[1]">@urlElements[1]</a></li>
+                        }
+                        if (urlElements.Length == 3)
+                        {
+                            <li><a href="~/@urlElements[0]/@ViewBag.Category">@ViewBag.Category</a></li>
+                            <li><a href="~/@urlElements[0]/@urlElements[1]/@urlElements[2]">@ViewBag.Title</a></li>
                         }
                     }
                 </ul>
