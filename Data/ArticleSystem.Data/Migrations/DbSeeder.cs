@@ -399,6 +399,12 @@
                                 .OrderBy(c => Guid.NewGuid())
                                 .FirstOrDefault();
 
+                            // ensure 1 level of commenting
+                            if (parentComment.ParentCommentID.HasValue)
+                            {
+                                continue;
+                            }
+
                             var commentReply = new Comment()
                             {
                                 Article = parentComment.Article,
@@ -407,7 +413,7 @@
                             };
 
                             parentComment.Comments.Add(commentReply);
-                            context.SaveChanges();
+                            context.SaveChanges(); 
                         }
                     }
 

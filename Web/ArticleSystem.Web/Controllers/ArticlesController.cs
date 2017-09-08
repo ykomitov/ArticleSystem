@@ -87,13 +87,6 @@
                 .To<ArticleDetailsViewModel>()
                 .FirstOrDefault();
 
-            var comments = this.comments
-                .GetArticleComments(id)
-                .To<CommentDetailsViewModel>()
-                .ToList();
-
-            article.Comments = comments;
-
             this.GetAsideArticles();
 
             return this.View(article);

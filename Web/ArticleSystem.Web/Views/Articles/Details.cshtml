@@ -24,30 +24,36 @@
                 @{
                     foreach (var comment in Model.Comments)
                     {
-                        <div class="comment">
-                            <div class="comment-avatar">
-                                <img src="@ImageFromDb.Image(comment.AuthorAvatar, "comment")">
-                            </div>
-                            <div class="comment-body">
-                                <span class="user-name">@comment.Author</span>
-                                <span class="comment-date">@comment.CreatedOn</span>
-                                <p class="comment-text">@comment.CommentText</p>
-                                @*<a href="/post.html" class="btn post-link">Reply</a>*@
-                            </div>
-                        </div>
-
-                        foreach (var reply in comment.Comments)
+                        if (comment.IsRoot)
                         {
                             <div class="comment">
                                 <div class="comment-avatar">
-                                    <img src="@ImageFromDb.Image(reply.AuthorAvatar, "comment")">
+                                    <img src="@ImageFromDb.Image(comment.AuthorAvatar, "comment")">
                                 </div>
                                 <div class="comment-body">
-                                    <span class="user-name">@reply.Author</span>
-                                    <span class="comment-date">@reply.CreatedOn</span>
-                                    <p class="comment-text">@reply.CommentText</p>
+                                    <span class="user-name">@comment.Author</span>
+                                    <span class="comment-date">@comment.CreatedOn</span>
+                                    <p class="comment-text">@comment.CommentText</p>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a href="/post.html" class="btn post-link">Reply</a>
+                                    }
                                 </div>
                             </div>
+
+                            foreach (var reply in comment.Comments)
+                            {
+                                <div class="comment reply">
+                                    <div class="comment-avatar">
+                                        <img src="@ImageFromDb.Image(reply.AuthorAvatar, "comment")">
+                                    </div>
+                                    <div class="comment-body">
+                                        <span class="user-name">@reply.Author</span>
+                                        <span class="comment-date">@reply.CreatedOn</span>
+                                        <p class="comment-text">@reply.CommentText</p>
+                                    </div>
+                                </div>
+                            }
                         }
                     }
                 }
