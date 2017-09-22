@@ -26,7 +26,7 @@
                     {
                         if (comment.IsRoot)
                         {
-                            <div class="comment">
+                            <div id="@string.Format("comment{0}", comment.Id)" class="comment">
                                 <div class="comment-avatar">
                                     <img src="@ImageFromDb.Image(comment.AuthorAvatar, "comment")">
                                 </div>
@@ -36,7 +36,7 @@
                                     <p class="comment-text">@comment.CommentText</p>
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        <a href="/post.html" class="btn post-link">Reply</a>
+                                        <span href="/post.html" class="btn post-link" onclick="fillReplyCommentForm(@comment.Id);">Reply</span>
                                     }
                                 </div>
                             </div>
@@ -61,12 +61,8 @@
         </div>
         @if (User.Identity.IsAuthenticated)
         {
+            @Html.Partial("_ReplyCommentForm")
             @Html.Partial("_CommentsForm")
-            @*<form id="comment-form">
-                <h1>Leave a comment</h1>
-                <textarea id="comment-text" placeholder="Message"></textarea>
-                <input type="submit" value="Post" class="btn post-link">
-            </form>*@
         }
     </div>
 </div>

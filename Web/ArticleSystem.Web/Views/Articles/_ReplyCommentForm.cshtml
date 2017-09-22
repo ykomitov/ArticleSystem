@@ -1,0 +1,18 @@
+﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
+<div id="replyForm">
+    @using (@Html.BeginForm("Post", "CommentReply", FormMethod.Post, new { @id = "reply-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h1>Reply to comment</h1>
+        <div class="comment reply">
+            <div class="comment-body">
+                <span id="replyCommentUser" class="user-name"></span>
+                <span id="replyCommentDate" class="comment-date"></span>
+                <p id="replyCommentText" class="comment-text"></p>
+            </div>
+        </div>
+        @Html.TextArea("textInput", null, new { @placeholder = "Your reply...", @id = "comment-text", required = "required" })
+        @Html.Hidden("articleId")
+        <input type="submit" value="Post" class="btn post-link">
+    }
+</div>

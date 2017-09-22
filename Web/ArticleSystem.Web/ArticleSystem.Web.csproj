@@ -432,6 +432,7 @@
     <Content Include="Scripts\KendoUI\asldadasdasd.txt" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\site\site.js" />
     <Content Include="Scripts\site\slick-init.js" />
     <Content Include="Scripts\site\slick.min.js" />
     <Content Include="Scripts\site\slider-yzk.js" />
@@ -484,6 +485,7 @@
     <Content Include="Views\Search\SearchResult.cshtml" />
     <Content Include="Views\Shared\_SearchForm.cshtml" />
     <Content Include="Views\Articles\_CommentsForm.cshtml" />
+    <Content Include="Views\Articles\_ReplyCommentForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
