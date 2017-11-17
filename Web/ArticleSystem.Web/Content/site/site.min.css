@@ -6,8 +6,8 @@ span[data-action="up"], span[data-action="down"] {
     cursor: pointer;
 }
 
-.k-grid{
-    height:600px;
+.k-grid {
+    height: 600px;
 }
 
 #form-button-btst {
@@ -36,7 +36,7 @@ h4 {
     position: absolute;
     right: 3px;
     top: 56px;
-    z-index: 999;
+    z-index: 998;
 }
 
 .slider .slick-arrow {
@@ -124,6 +124,73 @@ h4 {
             .slider-info-y .read-more a:hover {
                 color: #fff;
             }
+
+#replyForm {
+    /*height: 265px;
+    width: 600px;*/
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+    display: block;
+    background: url(login.png) no-repeat;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#replyForm-inner {
+    margin: 0 auto;
+    width: 550px;
+    text-align: right;
+}
+
+#replyForm:target, #replyForm:target + #cover {
+    display: block;
+    opacity: 2;
+}
+
+#replyForm #comment-text {
+    /*margin: 0 0 10px 0;*/
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#replyForm h1 {
+    margin: 0 0 10px 0;
+    text-align: left;
+}
+
+#replyForm .btn.post-link {
+    margin: 10px 0;
+    float: none;
+}
+
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.cancel {
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    background: rgb(245,245,245);
+    color: black;
+    height: 30px;
+    width: 35px;
+    font-size: 30px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    z-index: 999;
+}
 
 @media only screen and (max-width:980px) {
     .slider-info-y {
