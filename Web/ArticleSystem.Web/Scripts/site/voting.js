@@ -12,5 +12,5 @@ function voteClick(voteType, id) {
     $.post("/Votes/Vote", { articleId: id, voteType: voteType }, function (data) {
         var newVotesCount = data.Count;
         $('span[data-action="votesCount"][data-id="' + id + '"]').html(newVotesCount + ' votes');
-    })
+    });
 }

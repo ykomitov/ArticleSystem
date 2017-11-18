@@ -8,4 +8,24 @@
     $('#replyCommentUser').text(user);
     $('#replyCommentDate').text(date);
     $('#replyCommentText').text(comment);
+    $('#replyToCommentWithId').val(commentId); 
+
+    $('#replyForm').show();
+    $('#cover').show();
+    $('#comment-form').hide();
 }
+
+function closeReplyCommentForm() {
+    $('#replyForm').hide();
+    $('#cover').hide();
+    $('#comment-form').show();
+}
+
+// Close the Reply Form modal when ESC key is hit
+$(document).on('keydown', function (e) {
+    var isModalVisible = $('#replyForm').is(":visible");
+
+    if (e.keyCode === 27 && isModalVisible) {
+        closeReplyCommentForm();
+    }
+});

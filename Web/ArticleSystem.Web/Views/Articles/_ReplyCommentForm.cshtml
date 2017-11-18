@@ -1,13 +1,14 @@
 ﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
 <div id="replyForm">
     <div id="replyForm-inner">
-        <a href="#" class="cancel">&times;</a>
+        <a href="#" class="cancel" onclick="closeReplyCommentForm()">&times;</a>
         @using (@Html.BeginForm("Post", "CommentReply", FormMethod.Post, new { @id = "reply-form", role = "form" }))
         {
             @Html.AntiForgeryToken()
             <h1>Reply to comment</h1>
             <div class="comment reply">
                 <div class="comment-body">
+                    @Html.Hidden("replyToCommentWithId")
                     <span id="replyCommentUser" class="user-name"></span>
                     <span id="replyCommentDate" class="comment-date"></span>
                     <p id="replyCommentText" class="comment-text"></p>
@@ -19,4 +20,4 @@
         }
     </div>
 </div>
-<div id="cover"> </div>
+<div id="cover"></div>
