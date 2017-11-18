@@ -2,7 +2,7 @@
 <div id="replyForm">
     <div id="replyForm-inner">
         <a href="#" class="cancel" onclick="closeReplyCommentForm()">&times;</a>
-        @using (@Html.BeginForm("Post", "CommentReply", FormMethod.Post, new { @id = "reply-form", role = "form" }))
+        @using (@Html.BeginForm("PostReply", "Comments", FormMethod.Post, new { @id = "reply-form", role = "form" }))
         {
             @Html.AntiForgeryToken()
             <h1>Reply to comment</h1>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             @Html.TextArea("textInput", null, new { @placeholder = "Your reply...", @id = "comment-text", required = "required" })
-            @Html.Hidden("articleId")
+            @Html.Hidden("articleId", Model.Id)
             <input type="submit" value="Post" class="btn post-link">
         }
     </div>

@@ -1,6 +1,6 @@
 ﻿@model ArticleSystem.Web.ViewModels.Articles.ArticleDetailsViewModel
 
-@using (@Html.BeginForm("Post", "Comments", FormMethod.Post, new { @id = "comment-form", role = "form" }))
+@using (@Html.BeginForm("PostComment", "Comments", FormMethod.Post, new { @id = "comment-form", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h1>Leave a comment</h1>
