@@ -2,24 +2,23 @@
 {
     using System.Web.Mvc;
 
-    public class ModerationAreaRegistration : AreaRegistration 
+    public class ModerationAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Moderation";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Moderation_default",
                 "Moderation/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                new[] { "ArticleSystem.Web.Areas.Moderation.Controllers" }
-            );
+                new[] { "ArticleSystem.Web.Areas.Moderation.Controllers" });
         }
     }
 }
