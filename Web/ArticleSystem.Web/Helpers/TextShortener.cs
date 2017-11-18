@@ -25,7 +25,7 @@
         {
             if (originalText == null)
             {
-                return "";
+                return string.Empty;
             }
 
             var textWithLineBreaks = Regex.Replace(originalText, "</p>", Environment.NewLine);
