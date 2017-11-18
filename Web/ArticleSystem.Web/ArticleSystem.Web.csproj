@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -486,6 +487,7 @@
     <Content Include="Views\Shared\_SearchForm.cshtml" />
     <Content Include="Views\Articles\_CommentsForm.cshtml" />
     <Content Include="Views\Articles\_ReplyCommentForm.cshtml" />
+    <Content Include="Views\Shared\_CategoriesActionLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

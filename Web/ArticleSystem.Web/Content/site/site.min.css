@@ -149,6 +149,16 @@ h4 {
     background-color: white;
 }
 
+.comment.reply {
+    font-family: Kreon, serif;
+    font-size: 15px;
+    text-align: left;
+}
+
+#replyCommentText {
+    margin: 10px 0;
+}
+
 #replyForm-inner {
     margin: 0 20px;
     width: 550px;

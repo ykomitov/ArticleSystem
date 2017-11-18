@@ -7,6 +7,9 @@
         [HttpGet]
         public ActionResult Contacts()
         {
+            this.ViewBag.Title = "MVC Sample Blog System";
+            this.ViewBag.Subtitle = "Final Project for Telerik Academy";
+
             return this.View();
         }
     }

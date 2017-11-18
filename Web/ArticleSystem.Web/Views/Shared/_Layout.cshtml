@@ -50,13 +50,7 @@
                 </div>
                 <nav id="nav">
                     <ul>
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("News", "News", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Tech", "Tech", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Devices", "Devices", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Soft", "Soft", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Science", "Science", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("About", "Contacts", "About", new { area = string.Empty }, null)</li>
+                        @Html.Partial("_CategoriesActionLinks")
                     </ul>
                 </nav>
             </div>
@@ -64,13 +58,7 @@
                 <ul>
                     @if (Request.AppRelativeCurrentExecutionFilePath == "~/")
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("News", "News", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Tech", "Tech", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Devices", "Devices", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Soft", "Soft", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("Science", "Science", "Articles", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("About", "Contacts", "About", new { area = string.Empty }, null)</li>
+                        @Html.Partial("_CategoriesActionLinks")
                     }
                     else
                     {
@@ -79,11 +67,15 @@
                         var url = Request.Url.AbsolutePath;
                         var urlElements = url.Split('/').Where(e => !string.IsNullOrWhiteSpace(e)).ToArray();
 
-                        if (urlElements.Length == 2)
+                        if (urlElements.Length == 1)
+                        {
+                            <li><a href="~/@urlElements[0]">@urlElements[0]</a></li>
+                        }
+                        else if (urlElements.Length == 2)
                         {
                             <li><a href="~/@urlElements[0]/@urlElements[1]">@urlElements[1]</a></li>
                         }
-                        if (urlElements.Length == 3)
+                        else if (urlElements.Length == 3)
                         {
                             <li><a href="~/@urlElements[0]/@ViewBag.Category">@ViewBag.Category</a></li>
                             <li><a href="~/@urlElements[0]/@urlElements[1]/@urlElements[2]">@ViewBag.Title</a></li>

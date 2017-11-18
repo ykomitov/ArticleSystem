@@ -5,10 +5,10 @@
     var date = $(commentIdSelector + commentId + ' span.comment-date').first().text();
     var comment = $(commentIdSelector + commentId + ' p.comment-text').first().text();
 
-    $('#replyCommentUser').text(user);
-    $('#replyCommentDate').text(date);
+    $('#replyCommentUser').text('By ' + user);
+    $('#replyCommentDate').text('(' + date + ')');
     $('#replyCommentText').text(comment);
-    $('#replyToCommentWithId').val(commentId); 
+    $('#replyToCommentWithId').val(commentId);
 
     $('#replyForm').show();
     $('#cover').show();
@@ -21,7 +21,7 @@ function closeReplyCommentForm() {
     $('#comment-form').show();
 }
 
-// Close the Reply Form modal when ESC key is hit
+// Close the Reply form modal when ESC key is hit
 $(document).on('keydown', function (e) {
     var isModalVisible = $('#replyForm').is(":visible");
 
